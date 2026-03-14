@@ -1,0 +1,2122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=windows-1252">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>CookieUtil.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package org.jsoup.helper;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.jsoup.Connection;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_4'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.jsoup.internal.StringUtil;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.jsoup.parser.CharacterReader;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.jspecify.annotations.Nullable;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_7'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_8'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.io.IOException;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_9'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.net.CookieManager;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_10'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.net.MalformedURLException;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_11'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.net.URI;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_12'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.net.URISyntaxException;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_13'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.net.URL;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_14'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.Collections;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_15'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.HashMap;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_16'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.HashSet;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_17'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.LinkedHashSet;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_18'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.List;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_19'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.Map;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_20'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.Set;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_21'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.function.BiConsumer;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_22'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_23'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_24'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> Helper functions to support the Cookie Manager / Cookie Storage in HttpConnection.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_25'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_26'/>
+26
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_26'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> @since 1.14.1 */</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_27'/>
+27
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_27'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>class CookieUtil {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_28'/>
+28
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_28'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    // cookie manager get() wants request headers but doesn&#39;t use them, so we just pass a dummy object here</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_29'/>
+29
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_29'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    private static final Map&#60;String, List&#60;String&#62;&#62; EmptyRequestHeaders = Collections.unmodifiableMap(new HashMap&#60;&#62;());</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_30'/>
+30
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_30'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private static final String Sep = &#34;; &#34;;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_31'/>
+31
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_31'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private static final String CookieName = &#34;Cookie&#34;;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_32'/>
+32
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_32'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private static final String Cookie2Name = &#34;Cookie2&#34;;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_33'/>
+33
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_33'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_34'/>
+34
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_34'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_35'/>
+35
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_35'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     Pre-request, get any applicable headers out of the Request cookies and the Cookie Store, and add them to the request</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_36'/>
+36
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_36'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     headers. If the Cookie Store duplicates any Request cookies (same name and value), they will be discarded.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_37'/>
+37
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_37'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_38'/>
+38
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_38'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    static void applyCookiesToRequest(HttpConnection.Request req, BiConsumer&#60;String, String&#62; setter) throws IOException {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_39'/>
+39
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_39'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        // Request key/val cookies. LinkedHashSet used to preserve order, as cookie store will return most specific path first</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_40'/>
+40
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_40'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        Set&#60;String&#62; cookieSet = requestCookieSet(req);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_41'/>
+41
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_41'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        Set&#60;String&#62; cookies2 = null;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_42'/>
+42
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_42'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_43'/>
+43
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_43'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        // stored:</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_44'/>
+44
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_44'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        Map&#60;String, List&#60;String&#62;&#62; storedCookies = req.cookieManager().get(asUri(req.url), EmptyRequestHeaders);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_45'/>
+45
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_45'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        for (Map.Entry&#60;String, List&#60;String&#62;&#62; entry : storedCookies.entrySet()) {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_46'/>
+46
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_46'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            // might be Cookie: name=value; name=value\nCookie2: name=value; name=value</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_47'/>
+47
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_47'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            List&#60;String&#62; cookies = entry.getValue(); // these will be name=val</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_48'/>
+48
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_48'>2</a>
+<span>
+
+1. applyCookiesToRequest : negated conditional &rarr; KILLED<br/>
+
+2. applyCookiesToRequest : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            if (cookies == null || cookies.size() == 0) // the cookie store often returns just an empty &#34;Cookie&#34; key, no val</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_49'/>
+49
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_49'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                continue;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_50'/>
+50
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_50'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_51'/>
+51
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_51'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            String key = entry.getKey(); // Cookie or Cookie2</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_52'/>
+52
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_52'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            Set&#60;String&#62; set;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_53'/>
+53
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_53'>1</a>
+<span>
+
+1. applyCookiesToRequest : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            if (CookieName.equals(key))</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_54'/>
+54
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_54'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                set = cookieSet;</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_55'/>
+55
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_55'>1</a>
+<span>
+
+1. applyCookiesToRequest : negated conditional &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>            else if (Cookie2Name.equals(key)) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_56'/>
+56
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_56'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>                set = new HashSet&#60;&#62;();</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_57'/>
+57
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_57'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>                cookies2 = set;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_58'/>
+58
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_58'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            } else {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_59'/>
+59
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_59'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                continue; // unexpected header key</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_60'/>
+60
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_60'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_61'/>
+61
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_61'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            set.addAll(cookies);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_62'/>
+62
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_62'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_63'/>
+63
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_63'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_64'/>
+64
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_64'>2</a>
+<span>
+
+1. applyCookiesToRequest : changed conditional boundary &rarr; SURVIVED<br/>
+
+2. applyCookiesToRequest : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        if (cookieSet.size() &#62; 0)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_65'/>
+65
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_65'>1</a>
+<span>
+
+1. applyCookiesToRequest : removed call to java/util/function/BiConsumer::accept &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            setter.accept(CookieName, StringUtil.join(cookieSet, Sep));</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_66'/>
+66
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_66'>3</a>
+<span>
+
+1. applyCookiesToRequest : changed conditional boundary &rarr; NO_COVERAGE<br/>
+
+2. applyCookiesToRequest : negated conditional &rarr; NO_COVERAGE<br/>
+
+3. applyCookiesToRequest : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        if (cookies2 != null &#38;&#38; cookies2.size() &#62; 0)</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_67'/>
+67
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_67'>1</a>
+<span>
+
+1. applyCookiesToRequest : removed call to java/util/function/BiConsumer::accept &rarr; NO_COVERAGE<br/>
+
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>            setter.accept(Cookie2Name, StringUtil.join(cookies2, Sep));</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_68'/>
+68
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_68'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_69'/>
+69
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_69'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_70'/>
+70
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_70'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private static LinkedHashSet&#60;String&#62; requestCookieSet(Connection.Request req) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_71'/>
+71
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_71'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        LinkedHashSet&#60;String&#62; set = new LinkedHashSet&#60;&#62;();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_72'/>
+72
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_72'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        // req cookies are the wildcard key/val cookies (no domain, path, etc)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_73'/>
+73
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_73'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        for (Map.Entry&#60;String, String&#62; cookie : req.cookies().entrySet()) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_74'/>
+74
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_74'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            set.add(cookie.getKey() + &#34;=&#34; + cookie.getValue());</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_75'/>
+75
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_75'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_76'/>
+76
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_76'>1</a>
+<span>
+
+1. requestCookieSet : replaced return value with null for org/jsoup/helper/CookieUtil::requestCookieSet &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return set;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_77'/>
+77
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_77'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_78'/>
+78
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_78'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_79'/>
+79
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_79'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    static URI asUri(URL url) throws IOException {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_80'/>
+80
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_80'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        try {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_81'/>
+81
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_81'>1</a>
+<span>
+
+1. asUri : replaced return value with null for org/jsoup/helper/CookieUtil::asUri &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            return url.toURI();</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_82'/>
+82
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_82'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>        } catch (URISyntaxException e) {  // this would be a WTF because we construct the URL</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_83'/>
+83
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_83'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>            MalformedURLException ue = new MalformedURLException(e.getMessage());</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_84'/>
+84
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_84'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>            ue.initCause(e);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_85'/>
+85
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_85'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>            throw ue;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_86'/>
+86
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_86'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_87'/>
+87
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_87'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_88'/>
+88
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_88'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_89'/>
+89
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_89'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /** Store the Result cookies into the cookie manager, and place relevant cookies into the Response object. */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_90'/>
+90
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_90'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    static void storeCookies(HttpConnection.Request req, HttpConnection.Response res, URL url, Map&#60;String, List&#60;String&#62;&#62; resHeaders) throws IOException {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_91'/>
+91
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_91'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        CookieManager manager = req.cookieManager();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_92'/>
+92
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_92'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        URI uri = CookieUtil.asUri(url);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_93'/>
+93
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_93'>1</a>
+<span>
+
+1. storeCookies : removed call to java/net/CookieManager::put &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        manager.put(uri, resHeaders); // stores cookies for session</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_94'/>
+94
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_94'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_95'/>
+95
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_95'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        // set up the simple cookies() map</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_96'/>
+96
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_96'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        // the response may include cookies that are not relevant to this request, but users may require them if they are not using the cookie manager (setting request cookies only from the simple cookies() response):</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_97'/>
+97
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_97'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        for (Map.Entry&#60;String, List&#60;String&#62;&#62; entry : resHeaders.entrySet()) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_98'/>
+98
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_98'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            String name = entry.getKey();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_99'/>
+99
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_99'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            List&#60;String&#62; values = entry.getValue();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_100'/>
+100
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_100'>1</a>
+<span>
+
+1. storeCookies : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            if (name.equalsIgnoreCase(&#34;Set-Cookie&#34;)) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_101'/>
+101
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_101'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                for (String value : values) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_102'/>
+102
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_102'>1</a>
+<span>
+
+1. storeCookies : removed call to org/jsoup/helper/CookieUtil::parseCookie &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                    parseCookie(value, res);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_103'/>
+103
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_103'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_104'/>
+104
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_104'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_105'/>
+105
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_105'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_106'/>
+106
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_106'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_107'/>
+107
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_107'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_108'/>
+108
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_108'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    static void parseCookie(@Nullable String value, HttpConnection.Response res) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_109'/>
+109
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_109'>1</a>
+<span>
+
+1. parseCookie : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (value == null) return;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_110'/>
+110
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_110'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        CharacterReader reader = new CharacterReader(value);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_111'/>
+111
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_111'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        String cookieName = reader.consumeTo(&#39;=&#39;).trim();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_112'/>
+112
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_112'>1</a>
+<span>
+
+1. parseCookie : removed call to org/jsoup/parser/CharacterReader::advance &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        reader.advance();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_113'/>
+113
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_113'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        String cookieVal = reader.consumeTo(&#39;;&#39;).trim();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_114'/>
+114
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_114'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        // ignores path, date, domain, validateTLSCertificates et al. full details will be available in cookiestore if required</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_115'/>
+115
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_115'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        // name not blank, value not null</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_116'/>
+116
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_116'>1</a>
+<span>
+
+1. parseCookie : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (!cookieName.isEmpty())</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_117'/>
+117
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_117'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            res.cookie(cookieName, cookieVal); // if duplicate names, last set will win</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_118'/>
+118
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_118'>1</a>
+<span>
+
+1. parseCookie : removed call to org/jsoup/parser/CharacterReader::close &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        reader.close();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_119'/>
+119
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_119'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@608ea990_120'/>
+120
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_120'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@608ea990_48'>48</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_48'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>applyCookiesToRequest<br/><b>Killed by : </b>org.jsoup.integration.SessionTest.[engine:junit-jupiter]/[class:org.jsoup.integration.SessionTest]/[method:testPathScopedCookiesOnRedirect()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>applyCookiesToRequest<br/><b>Killed by : </b>org.jsoup.integration.SessionTest.[engine:junit-jupiter]/[class:org.jsoup.integration.SessionTest]/[method:testPathScopedCookiesOnRedirect()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@608ea990_53'>53</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_53'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>applyCookiesToRequest<br/><b>Killed by : </b>org.jsoup.integration.SessionTest.[engine:junit-jupiter]/[class:org.jsoup.integration.SessionTest]/[method:testPathScopedCookiesOnRedirect()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@608ea990_55'>55</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_55'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>applyCookiesToRequest<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@608ea990_64'>64</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_64'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>applyCookiesToRequest<br/><b>Killed by : </b>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:doesPut()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>applyCookiesToRequest<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.jsoup.helper.CookieUtil,-method=applyCookiesToRequest,-methodDesc=(Lorg/jsoup/helper/HttpConnection$Request;Ljava/util/function/BiConsumer;)V],-indexes=[102],-mutator=org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.jsoup.helper.CookieUtil,-method=applyCookiesToRequest,-methodDesc=(Lorg/jsoup/helper/HttpConnection$Request;Ljava/util/function/BiConsumer;)V],-indexes=[102],-mutator=org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.jsoup.helper.CookieUtil,-method=applyCookiesToRequest,-methodDesc=(Lorg/jsoup/helper/HttpConnection$Request;Ljava/util/function/BiConsumer;)V],-indexes=[102],-mutator=org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:testBinaryContentTypeThrowsException()]</li> <li>org.jsoup.integration.ConnectIT.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectIT]/[method:bodyStreamConstrainedViaBufferUp()]</li> <li>org.jsoup.integration.ConnectIT.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectIT]/[method:bodyStreamConstrainedViaReadFully()]</li> <li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:throwsExceptionOn404()]</li> <li>org.jsoup.integration.ConnectIT.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectIT]/[method:noLimitAfterFirstRead()]</li> <li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:canFetchBinaryAsBytes()]</li> <li>org.jsoup.integration.ConnectIT.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectIT]/[method:remainingAfterFirstRead()]</li> <li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[test-template:failsIfNotAuthenticated(java.lang.String)]/[test-template-invocation:#1]</li> <li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:sendHeadRequest()]</li> <li>org.jsoup.integration.ProxyTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ProxyTest]/[test-template:canAuthenticateToProxy(java.lang.String)]/[test-template-invocation:#1]</li> <li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[test-template:incorrectAuth(java.lang.String)]/[test-template-invocation:#1]</li> <li>org.jsoup.integration.SessionIT.[engine:junit-jupiter]/[class:org.jsoup.integration.SessionIT]/[method:multiThreadWithoutNewRequestBlowsUp()]</li> <li>org.jsoup.integration.ProxyTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ProxyTest]/[test-template:canAuthenticateToProxy(java.lang.String)]/[test-template-invocation:#2]</li> <li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:handlesEmptyRedirect()]</li> <li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:maxBodySizeInReadToByteBuffer()]</li> <li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:canConnectToLocalServer()]</li> <li>org.jsoup.integration.ProxyTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ProxyTest]/[test-template:fetchViaProxy(java.lang.String)]/[test-template-invocation:#1]</li> <li>org.jsoup.integration.ProxyTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ProxyTest]/[test-template:fetchViaProxy(java.lang.String)]/[test-template-invocation:#2]</li> <li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:supportsDeflate()]</li> <li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:handlesRedirect()]</li> <li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:streamerGetUtf8Bom()]</li> <li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:getUtf8Bom()]</li> <li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:fetchHandlesXml()]</li> <li>org.jsoup.parser.PositionTest.[engine:junit-jupiter]/[class:org.jsoup.parser.PositionTest]/[method:tracksFromXmlFetch()]</li> <li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:preservesUrlFragment()]</li> <li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:fetchHandlesXmlAsHtmlWhenParserSet()]</li> <li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:combinesSameHeadersWithComma()]</li> <li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:handlesWrongContentLengthDuringBufferedRead()]</li> <li>org.jsoup.parser.StreamParserTest.[engine:junit-jupiter]/[class:org.jsoup.parser.StreamParserTest]/[method:canCleanlyConsumePortionOfUrl()]</li> <li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:bodyAfterParseThrowsValidationError()]</li> <li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:statusMessage()]</li> <li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:testParseRss()]</li> <li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:imageXmlMimeType()]</li> <li>org.jsoup.integration.SessionTest.[engine:junit-jupiter]/[class:org.jsoup.integration.SessionTest]/[method:testCanChangeParsers()]</li> <li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:fetchURl()]</li> <li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:fetchURIWithWhitespace()]</li> <li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:handlesLargerContentLengthParseRead()]</li> <li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:bodyAndBytesAvailableBeforeParse()]</li> <li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:ignoresExceptionIfSoConfigured()]</li> <li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:parseParseThrowsValidates()]</li> <li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:baseHrefCorrectAfterHttpEquiv()]</li> <li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:fetchToW3c()]</li> <li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:multipleParsesOkAfterBufferUp()]</li> <li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:multipleParsesOkAfterReadFully()]</li> <li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:testSupplyParserToConnection()]</li> <li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:canConnectToLocalTlsServer()]</li> <li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[test-template:streamParserGet(java.lang.String)]/[test-template-invocation:#1]</li> <li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[test-template:streamParserGet(java.lang.String)]/[test-template-invocation:#2]</li> <li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:canSendSecFetchHeaders()]</li> <li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:fetchUnicodeUrl()]</li> <li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:doesDeleteWithBody()]</li> <li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:sendsRequestBody()]</li> <li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:sendsRequestBodyJsonWithoutData()]</li> <li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:doesDeleteWithoutBody()]</li> <li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:sendsRequestBodyJsonWithData()]</li> <li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:doesPut()]</li> <li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[test-template:doesGet(java.lang.String)]/[test-template-invocation:#1]</li> <li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:doesNotPostFor302()]</li> <li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:doesPost()]</li> <li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[test-template:doesGet(java.lang.String)]/[test-template-invocation:#2]</li> <li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:willEscapePathInRedirect()]</li> <li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:sendsRequestBodyStream()]</li> <li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:requestCookiesSurviveRedirect()]</li> <li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[test-template:progressListener(java.lang.String)]/[test-template-invocation:#2]</li> <li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:doesPostFor307()]</li> <li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:repeatable()]</li> <li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[test-template:canAuthenticate(java.lang.String)]/[test-template-invocation:#1]</li> <li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[test-template:progressListener(java.lang.String)]/[test-template-invocation:#1]</li> <li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:doesPostMultipartWithoutInputstream()]</li> <li>org.jsoup.integration.SessionTest.[engine:junit-jupiter]/[class:org.jsoup.integration.SessionTest]/[method:testPathScopedCookiesOnRedirect()]</li> <li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:sendsRequestBodyWithUrlParams()]</li> <li>org.jsoup.integration.SessionTest.[engine:junit-jupiter]/[class:org.jsoup.integration.SessionTest]/[method:testPathScopedCookies()]</li> <li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:secFetchHeadersSurviveRedirect()]</li> <li>org.jsoup.integration.ProxyTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ProxyTest]/[method:redirectViaProxy()]</li> <li>org.jsoup.parser.PositionTest.[engine:junit-jupiter]/[class:org.jsoup.parser.PositionTest]/[method:tracksFromFetch()]</li> <li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[test-template:canAuthenticate(java.lang.String)]/[test-template-invocation:#2]</li> <li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:multiCookieSet()]</li> <li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:formLoginFlow2()]</li> <li>org.jsoup.integration.ProxyTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ProxyTest]/[test-template:canAuthToProxyAndServer(java.lang.String)]/[test-template-invocation:#2]</li> <li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:handlesUnknownEscapesAcrossBuffer()]</li> <li>org.jsoup.nodes.FormElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.FormElementTest]/[method:formSubmissionCarriesCookiesFromSession()]</li> <li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:formLoginFlow()]</li> <li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[test-template:postFiles(java.lang.String)]/[test-template-invocation:#1]</li> <li>org.jsoup.integration.ProxyTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ProxyTest]/[method:proxyForSession()]</li> <li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[test-template:incorrectAuth(java.lang.String)]/[test-template-invocation:#2]</li> <li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[test-template:postFiles(java.lang.String)]/[test-template-invocation:#2]</li> <li>org.jsoup.integration.SessionIT.[engine:junit-jupiter]/[class:org.jsoup.integration.SessionIT]/[method:multiThreadWithProgressListener()]</li> <li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:postHtmlFile()]</li> <li>org.jsoup.integration.ProxyTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ProxyTest]/[test-template:canAuthToProxyAndServer(java.lang.String)]/[test-template-invocation:#1]</li> <li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[test-template:failsIfNotAuthenticated(java.lang.String)]/[test-template-invocation:#2]</li> <li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:maxBodySize()]</li> <li>org.jsoup.integration.SessionIT.[engine:junit-jupiter]/[class:org.jsoup.integration.SessionIT]/[method:multiThread()]</li> <li>org.jsoup.integration.ConnectIT.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectIT]/[method:readBodyThrowsOnTimeout()]</li> <li>org.jsoup.integration.ConnectIT.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectIT]/[method:bodyThrowsUncheckedOnTimeout()]</li> <li>org.jsoup.integration.ConnectIT.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectIT]/[method:canInterruptBodyStringRead()]</li> <li>org.jsoup.integration.ConnectIT.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectIT]/[method:totalTimeout()]</li> <li>org.jsoup.integration.ConnectIT.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectIT]/[method:canInterruptThenJoinASpawnedThread()]</li> <li>org.jsoup.integration.ConnectIT.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectIT]/[method:canInterruptDocumentRead()]</li> <li>org.jsoup.integration.ConnectIT.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectIT]/[method:infiniteReadSupported()]</li> <li>org.jsoup.integration.ConnectIT.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectIT]/[method:slowReadOk()]</li> <li>org.jsoup.integration.ConnectIT.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectIT]/[method:readFullyThrowsOnTimeout()]</li> <li>org.jsoup.integration.ConnectIT.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectIT]/[method:streamParserUncheckedExceptionOnTimeoutInStream()]</li> <li>org.jsoup.integration.ConnectIT.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectIT]/[method:streamParserCheckedExceptionOnTimeoutInSelect()]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@608ea990_65'>65</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_65'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>applyCookiesToRequest<br/><b>Killed by : </b>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:doesPut()]</span></span> removed call to java/util/function/BiConsumer::accept &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@608ea990_66'>66</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_66'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>applyCookiesToRequest<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; NO_COVERAGE</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>applyCookiesToRequest<br/><b>Killed by : </b>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:testBinaryContentTypeThrowsException()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='NO_COVERAGE'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>applyCookiesToRequest<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@608ea990_67'>67</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_67'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>applyCookiesToRequest<br/><b>Killed by : </b>none</span></span> removed call to java/util/function/BiConsumer::accept &rarr; NO_COVERAGE</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@608ea990_76'>76</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_76'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>requestCookieSet<br/><b>Killed by : </b>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:testBinaryContentTypeThrowsException()]</span></span> replaced return value with null for org/jsoup/helper/CookieUtil::requestCookieSet &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@608ea990_81'>81</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_81'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>asUri<br/><b>Killed by : </b>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:testBinaryContentTypeThrowsException()]</span></span> replaced return value with null for org/jsoup/helper/CookieUtil::asUri &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@608ea990_93'>93</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_93'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>storeCookies<br/><b>Killed by : </b>org.jsoup.integration.SessionTest.[engine:junit-jupiter]/[class:org.jsoup.integration.SessionTest]/[method:testPathScopedCookiesOnRedirect()]</span></span> removed call to java/net/CookieManager::put &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@608ea990_100'>100</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_100'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>storeCookies<br/><b>Killed by : </b>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:requestCookiesSurviveRedirect()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@608ea990_102'>102</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_102'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>storeCookies<br/><b>Killed by : </b>org.jsoup.integration.SessionTest.[engine:junit-jupiter]/[class:org.jsoup.integration.SessionTest]/[method:testPathScopedCookies()]</span></span> removed call to org/jsoup/helper/CookieUtil::parseCookie &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@608ea990_109'>109</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_109'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>parseCookie<br/><b>Killed by : </b>org.jsoup.helper.CookieUtilTest.[engine:junit-jupiter]/[class:org.jsoup.helper.CookieUtilTest]/[method:parseCookie()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@608ea990_112'>112</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_112'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>parseCookie<br/><b>Killed by : </b>org.jsoup.helper.CookieUtilTest.[engine:junit-jupiter]/[class:org.jsoup.helper.CookieUtilTest]/[method:parseCookie()]</span></span> removed call to org/jsoup/parser/CharacterReader::advance &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@608ea990_116'>116</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_116'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>parseCookie<br/><b>Killed by : </b>org.jsoup.helper.CookieUtilTest.[engine:junit-jupiter]/[class:org.jsoup.helper.CookieUtilTest]/[method:parseCookie()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@608ea990_118'>118</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@608ea990_118'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>parseCookie<br/><b>Killed by : </b>none</span></span> removed call to org/jsoup/parser/CharacterReader::close &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.jsoup.helper.CookieUtil,-method=parseCookie,-methodDesc=(Ljava/lang/String;Lorg/jsoup/helper/HttpConnection$Response;)V],-indexes=[48],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.jsoup.helper.CookieUtil,-method=parseCookie,-methodDesc=(Ljava/lang/String;Lorg/jsoup/helper/HttpConnection$Response;)V],-indexes=[48],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.jsoup.helper.CookieUtil,-method=parseCookie,-methodDesc=(Ljava/lang/String;Lorg/jsoup/helper/HttpConnection$Response;)V],-indexes=[48],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>org.jsoup.helper.CookieUtilTest.[engine:junit-jupiter]/[class:org.jsoup.helper.CookieUtilTest]/[method:parseCookie()]</li> <li>org.jsoup.integration.SessionTest.[engine:junit-jupiter]/[class:org.jsoup.integration.SessionTest]/[method:testPathScopedCookiesOnRedirect()]</li> <li>org.jsoup.integration.SessionTest.[engine:junit-jupiter]/[class:org.jsoup.integration.SessionTest]/[method:testPathScopedCookies()]</li> <li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:multiCookieSet()]</li> <li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:formLoginFlow2()]</li> <li>org.jsoup.nodes.FormElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.FormElementTest]/[method:formSubmissionCarriesCookiesFromSession()]</li> <li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:formLoginFlow()]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+
+<li class='mutator'>CONDITIONALS_BOUNDARY</li>
+
+<li class='mutator'>EMPTY_RETURNS</li>
+
+<li class='mutator'>FALSE_RETURNS</li>
+
+<li class='mutator'>INCREMENTS</li>
+
+<li class='mutator'>INVERT_NEGS</li>
+
+<li class='mutator'>MATH</li>
+
+<li class='mutator'>NEGATE_CONDITIONALS</li>
+
+<li class='mutator'>NULL_RETURNS</li>
+
+<li class='mutator'>PRIMITIVE_RETURNS</li>
+
+<li class='mutator'>TRUE_RETURNS</li>
+
+<li class='mutator'>VOID_METHOD_CALLS</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:testBinaryContentTypeThrowsException()] (8 ms)</li><li>org.jsoup.integration.ConnectIT.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectIT]/[method:bodyStreamConstrainedViaBufferUp()] (10 ms)</li><li>org.jsoup.integration.ConnectIT.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectIT]/[method:bodyStreamConstrainedViaReadFully()] (16 ms)</li><li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:throwsExceptionOn404()] (22 ms)</li><li>org.jsoup.integration.ConnectIT.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectIT]/[method:noLimitAfterFirstRead()] (19 ms)</li><li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:canFetchBinaryAsBytes()] (18 ms)</li><li>org.jsoup.integration.ConnectIT.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectIT]/[method:remainingAfterFirstRead()] (38 ms)</li><li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[test-template:failsIfNotAuthenticated(java.lang.String)]/[test-template-invocation:#1] (68 ms)</li><li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:sendHeadRequest()] (18 ms)</li><li>org.jsoup.integration.ProxyTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ProxyTest]/[test-template:canAuthenticateToProxy(java.lang.String)]/[test-template-invocation:#1] (74 ms)</li><li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[test-template:incorrectAuth(java.lang.String)]/[test-template-invocation:#1] (77 ms)</li><li>org.jsoup.integration.SessionIT.[engine:junit-jupiter]/[class:org.jsoup.integration.SessionIT]/[method:multiThreadWithoutNewRequestBlowsUp()] (123 ms)</li><li>org.jsoup.integration.ProxyTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ProxyTest]/[test-template:canAuthenticateToProxy(java.lang.String)]/[test-template-invocation:#2] (88 ms)</li><li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:handlesEmptyRedirect()] (143 ms)</li><li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:maxBodySizeInReadToByteBuffer()] (128 ms)</li><li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:canConnectToLocalServer()] (8 ms)</li><li>org.jsoup.integration.ProxyTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ProxyTest]/[test-template:fetchViaProxy(java.lang.String)]/[test-template-invocation:#1] (7 ms)</li><li>org.jsoup.integration.ProxyTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ProxyTest]/[test-template:fetchViaProxy(java.lang.String)]/[test-template-invocation:#2] (10 ms)</li><li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:supportsDeflate()] (16 ms)</li><li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:handlesRedirect()] (12 ms)</li><li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:streamerGetUtf8Bom()] (10 ms)</li><li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:getUtf8Bom()] (10 ms)</li><li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:fetchHandlesXml()] (46 ms)</li><li>org.jsoup.parser.PositionTest.[engine:junit-jupiter]/[class:org.jsoup.parser.PositionTest]/[method:tracksFromXmlFetch()] (6 ms)</li><li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:preservesUrlFragment()] (11 ms)</li><li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:fetchHandlesXmlAsHtmlWhenParserSet()] (11 ms)</li><li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:combinesSameHeadersWithComma()] (9 ms)</li><li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:handlesWrongContentLengthDuringBufferedRead()] (29 ms)</li><li>org.jsoup.parser.StreamParserTest.[engine:junit-jupiter]/[class:org.jsoup.parser.StreamParserTest]/[method:canCleanlyConsumePortionOfUrl()] (11 ms)</li><li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:bodyAfterParseThrowsValidationError()] (14 ms)</li><li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:statusMessage()] (16 ms)</li><li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:testParseRss()] (12 ms)</li><li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:imageXmlMimeType()] (40 ms)</li><li>org.jsoup.integration.SessionTest.[engine:junit-jupiter]/[class:org.jsoup.integration.SessionTest]/[method:testCanChangeParsers()] (18 ms)</li><li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:fetchURl()] (8 ms)</li><li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:fetchURIWithWhitespace()] (8 ms)</li><li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:handlesLargerContentLengthParseRead()] (41 ms)</li><li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:bodyAndBytesAvailableBeforeParse()] (11 ms)</li><li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:ignoresExceptionIfSoConfigured()] (14 ms)</li><li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:parseParseThrowsValidates()] (16 ms)</li><li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:baseHrefCorrectAfterHttpEquiv()] (22 ms)</li><li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:fetchToW3c()] (16 ms)</li><li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:multipleParsesOkAfterBufferUp()] (15 ms)</li><li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:multipleParsesOkAfterReadFully()] (22 ms)</li><li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:testSupplyParserToConnection()] (26 ms)</li><li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:canConnectToLocalTlsServer()] (97 ms)</li><li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[test-template:streamParserGet(java.lang.String)]/[test-template-invocation:#1] (11 ms)</li><li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[test-template:streamParserGet(java.lang.String)]/[test-template-invocation:#2] (13 ms)</li><li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:canSendSecFetchHeaders()] (13 ms)</li><li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:fetchUnicodeUrl()] (16 ms)</li><li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:doesDeleteWithBody()] (13 ms)</li><li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:sendsRequestBody()] (13 ms)</li><li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:sendsRequestBodyJsonWithoutData()] (14 ms)</li><li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:doesDeleteWithoutBody()] (20 ms)</li><li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:sendsRequestBodyJsonWithData()] (16 ms)</li><li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:doesPut()] (15 ms)</li><li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[test-template:doesGet(java.lang.String)]/[test-template-invocation:#1] (12 ms)</li><li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:doesNotPostFor302()] (18 ms)</li><li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:doesPost()] (20 ms)</li><li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[test-template:doesGet(java.lang.String)]/[test-template-invocation:#2] (17 ms)</li><li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:willEscapePathInRedirect()] (15 ms)</li><li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:sendsRequestBodyStream()] (28 ms)</li><li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:requestCookiesSurviveRedirect()] (21 ms)</li><li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[test-template:progressListener(java.lang.String)]/[test-template-invocation:#2] (100 ms)</li><li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:doesPostFor307()] (30 ms)</li><li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:repeatable()] (156 ms)</li><li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[test-template:canAuthenticate(java.lang.String)]/[test-template-invocation:#1] (41 ms)</li><li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[test-template:progressListener(java.lang.String)]/[test-template-invocation:#1] (106 ms)</li><li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:doesPostMultipartWithoutInputstream()] (33 ms)</li><li>org.jsoup.integration.SessionTest.[engine:junit-jupiter]/[class:org.jsoup.integration.SessionTest]/[method:testPathScopedCookiesOnRedirect()] (21 ms)</li><li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:sendsRequestBodyWithUrlParams()] (33 ms)</li><li>org.jsoup.integration.SessionTest.[engine:junit-jupiter]/[class:org.jsoup.integration.SessionTest]/[method:testPathScopedCookies()] (28 ms)</li><li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:secFetchHeadersSurviveRedirect()] (48 ms)</li><li>org.jsoup.integration.ProxyTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ProxyTest]/[method:redirectViaProxy()] (52 ms)</li><li>org.jsoup.parser.PositionTest.[engine:junit-jupiter]/[class:org.jsoup.parser.PositionTest]/[method:tracksFromFetch()] (127 ms)</li><li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[test-template:canAuthenticate(java.lang.String)]/[test-template-invocation:#2] (91 ms)</li><li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:multiCookieSet()] (75 ms)</li><li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:formLoginFlow2()] (31 ms)</li><li>org.jsoup.integration.ProxyTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ProxyTest]/[test-template:canAuthToProxyAndServer(java.lang.String)]/[test-template-invocation:#2] (153 ms)</li><li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:handlesUnknownEscapesAcrossBuffer()] (224 ms)</li><li>org.jsoup.nodes.FormElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.FormElementTest]/[method:formSubmissionCarriesCookiesFromSession()] (60 ms)</li><li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:formLoginFlow()] (72 ms)</li><li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[test-template:postFiles(java.lang.String)]/[test-template-invocation:#1] (168 ms)</li><li>org.jsoup.integration.ProxyTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ProxyTest]/[method:proxyForSession()] (266 ms)</li><li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[test-template:incorrectAuth(java.lang.String)]/[test-template-invocation:#2] (435 ms)</li><li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[test-template:postFiles(java.lang.String)]/[test-template-invocation:#2] (219 ms)</li><li>org.jsoup.integration.SessionIT.[engine:junit-jupiter]/[class:org.jsoup.integration.SessionIT]/[method:multiThreadWithProgressListener()] (255 ms)</li><li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:postHtmlFile()] (180 ms)</li><li>org.jsoup.integration.ProxyTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ProxyTest]/[test-template:canAuthToProxyAndServer(java.lang.String)]/[test-template-invocation:#1] (425 ms)</li><li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[test-template:failsIfNotAuthenticated(java.lang.String)]/[test-template-invocation:#2] (752 ms)</li><li>org.jsoup.integration.ConnectTest.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectTest]/[method:maxBodySize()] (630 ms)</li><li>org.jsoup.integration.SessionIT.[engine:junit-jupiter]/[class:org.jsoup.integration.SessionIT]/[method:multiThread()] (2371 ms)</li><li>org.jsoup.integration.ConnectIT.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectIT]/[method:readBodyThrowsOnTimeout()] (3026 ms)</li><li>org.jsoup.integration.ConnectIT.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectIT]/[method:bodyThrowsUncheckedOnTimeout()] (3030 ms)</li><li>org.jsoup.integration.ConnectIT.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectIT]/[method:canInterruptBodyStringRead()] (3031 ms)</li><li>org.jsoup.integration.ConnectIT.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectIT]/[method:totalTimeout()] (3029 ms)</li><li>org.jsoup.integration.ConnectIT.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectIT]/[method:canInterruptThenJoinASpawnedThread()] (3037 ms)</li><li>org.jsoup.integration.ConnectIT.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectIT]/[method:canInterruptDocumentRead()] (3025 ms)</li><li>org.jsoup.integration.ConnectIT.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectIT]/[method:infiniteReadSupported()] (3025 ms)</li><li>org.jsoup.integration.ConnectIT.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectIT]/[method:slowReadOk()] (3028 ms)</li><li>org.jsoup.integration.ConnectIT.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectIT]/[method:readFullyThrowsOnTimeout()] (3283 ms)</li><li>org.jsoup.integration.ConnectIT.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectIT]/[method:streamParserUncheckedExceptionOnTimeoutInStream()] (5036 ms)</li><li>org.jsoup.integration.ConnectIT.[engine:junit-jupiter]/[class:org.jsoup.integration.ConnectIT]/[method:streamParserCheckedExceptionOnTimeoutInSelect()] (5033 ms)</li><li>org.jsoup.helper.CookieUtilTest.[engine:junit-jupiter]/[class:org.jsoup.helper.CookieUtilTest]/[method:parseCookie()] (23 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='https://pitest.org'>PIT</a> 1.22.1
+
+</body>
+</html>

@@ -1,0 +1,2262 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=windows-1252">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>NodeIterator.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package org.jsoup.nodes;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.jsoup.helper.Validate;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_4'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.jspecify.annotations.Nullable;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.Iterator;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_7'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.NoSuchElementException;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_8'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_9'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_10'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> Iterate through a Node and its tree of descendants, in document order, and returns nodes of the specified type. This</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_11'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> iterator supports structural changes to the tree during the traversal, such as {@link Node#remove()},</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_12'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> {@link Node#replaceWith(Node)}, {@link Node#wrap(String)}, etc.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_13'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> &#60;p&#62;See also the {@link org.jsoup.select.NodeTraversor NodeTraversor} if {@code head} and {@code tail} callbacks are</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_14'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> desired for each node.&#60;/p&#62;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_15'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> @since 1.17.1</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_16'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_17'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>public class NodeIterator&#60;T extends Node&#62; implements Iterator&#60;T&#62; {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_18'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private Node root;                      // root / starting node</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_19'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private @Nullable T next;               // the next node to return</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_20'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private Node current;                   // the current (last emitted) node</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_21'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private Node previous;                  // the previously emitted node; used to recover from structural changes</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_22'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private @Nullable Node currentParent;   // the current node&#39;s parent; used to detect structural changes</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_23'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private final Class&#60;T&#62; type;            // the desired node class type</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_24'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_25'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_26'/>
+26
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_26'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     Create a NoteIterator that will iterate the supplied node, and all of its descendants. The returned {@link #next}</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_27'/>
+27
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_27'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     type will be filtered to the input type.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_28'/>
+28
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_28'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param start initial node</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_29'/>
+29
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_29'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param type node type to filter for</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_30'/>
+30
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_30'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_31'/>
+31
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_31'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    public NodeIterator(Node start, Class&#60;T&#62; type) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_32'/>
+32
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_32'>1</a>
+<span>
+
+1. &#60;init&#62; : removed call to org/jsoup/helper/Validate::notNull &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        Validate.notNull(start);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_33'/>
+33
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_33'>1</a>
+<span>
+
+1. &#60;init&#62; : removed call to org/jsoup/helper/Validate::notNull &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        Validate.notNull(type);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_34'/>
+34
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_34'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.type = type;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_35'/>
+35
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_35'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_36'/>
+36
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_36'>1</a>
+<span>
+
+1. &#60;init&#62; : removed call to org/jsoup/nodes/NodeIterator::restart &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        restart(start);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_37'/>
+37
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_37'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_38'/>
+38
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_38'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_39'/>
+39
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_39'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_40'/>
+40
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_40'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     Create a NoteIterator that will iterate the supplied node, and all of its descendants. All node types will be</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_41'/>
+41
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_41'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     returned.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_42'/>
+42
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_42'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param start initial node</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_43'/>
+43
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_43'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_44'/>
+44
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_44'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public static NodeIterator&#60;Node&#62; from(Node start) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_45'/>
+45
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_45'>1</a>
+<span>
+
+1. from : replaced return value with null for org/jsoup/nodes/NodeIterator::from &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return new NodeIterator&#60;&#62;(start, Node.class);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_46'/>
+46
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_46'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_47'/>
+47
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_47'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_48'/>
+48
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_48'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_49'/>
+49
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_49'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     Restart this Iterator from the specified start node. Will act as if it were newly constructed. Useful for e.g. to</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_50'/>
+50
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_50'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     save some GC if the iterator is used in a tight loop.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_51'/>
+51
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_51'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param start the new start node.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_52'/>
+52
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_52'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_53'/>
+53
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_53'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public void restart(Node start) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_54'/>
+54
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_54'>1</a>
+<span>
+
+1. restart : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (type.isInstance(start))</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_55'/>
+55
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_55'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            //noinspection unchecked</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_56'/>
+56
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_56'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            next = (T) start; // first next() will be the start node</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_57'/>
+57
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_57'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_58'/>
+58
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_58'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        root = previous = current = start;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_59'/>
+59
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_59'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        currentParent = current.parent();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_60'/>
+60
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_60'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_61'/>
+61
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_61'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_62'/>
+62
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_62'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override public boolean hasNext() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_63'/>
+63
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_63'>1</a>
+<span>
+
+1. hasNext : removed call to org/jsoup/nodes/NodeIterator::maybeFindNext &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        maybeFindNext();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_64'/>
+64
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_64'>2</a>
+<span>
+
+1. hasNext : negated conditional &rarr; KILLED<br/>
+
+2. hasNext : replaced boolean return with true for org/jsoup/nodes/NodeIterator::hasNext &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return next != null;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_65'/>
+65
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_65'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_66'/>
+66
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_66'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_67'/>
+67
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_67'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override public T next() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_68'/>
+68
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_68'>1</a>
+<span>
+
+1. next : removed call to org/jsoup/nodes/NodeIterator::maybeFindNext &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        maybeFindNext();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_69'/>
+69
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_69'>1</a>
+<span>
+
+1. next : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (next == null) throw new NoSuchElementException();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_70'/>
+70
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_70'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_71'/>
+71
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_71'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        T result = next;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_72'/>
+72
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_72'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        previous = current;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_73'/>
+73
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_73'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        current = next;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_74'/>
+74
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_74'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        currentParent = current.parent();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_75'/>
+75
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_75'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        next = null;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_76'/>
+76
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_76'>1</a>
+<span>
+
+1. next : replaced return value with null for org/jsoup/nodes/NodeIterator::next &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return result;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_77'/>
+77
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_77'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_78'/>
+78
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_78'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_79'/>
+79
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_79'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_80'/>
+80
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_80'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     If next is not null, looks for and sets next. If next is null after this, we have reached the end.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_81'/>
+81
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_81'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_82'/>
+82
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_82'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private void maybeFindNext() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_83'/>
+83
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_83'>1</a>
+<span>
+
+1. maybeFindNext : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (next != null) return;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_84'/>
+84
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_84'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_85'/>
+85
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_85'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        //  change detected (removed or replaced), redo from previous</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_86'/>
+86
+</td>
+<td class='uncertain'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_86'>2</a>
+<span>
+
+1. maybeFindNext : negated conditional &rarr; TIMED_OUT<br/>
+
+2. maybeFindNext : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='uncertain'>        if (currentParent != null &#38;&#38; !current.hasParent())</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_87'/>
+87
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_87'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            current = previous;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_88'/>
+88
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_88'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_89'/>
+89
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_89'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        next = findNextNode();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_90'/>
+90
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_90'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_91'/>
+91
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_91'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_92'/>
+92
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_92'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private @Nullable T findNextNode() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_93'/>
+93
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_93'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        Node node = current;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_94'/>
+94
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_94'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        while (true) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_95'/>
+95
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_95'>2</a>
+<span>
+
+1. findNextNode : changed conditional boundary &rarr; KILLED<br/>
+
+2. findNextNode : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            if (node.childNodeSize() &#62; 0)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_96'/>
+96
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_96'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                node = node.childNode(0);                   // descend children</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_97'/>
+97
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_97'>1</a>
+<span>
+
+1. findNextNode : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            else if (root.equals(node))</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_98'/>
+98
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_98'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                node = null;                                // complete when all children of root are fully visited</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_99'/>
+99
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_99'>1</a>
+<span>
+
+1. findNextNode : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            else if (node.nextSibling() != null)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_100'/>
+100
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_100'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                node = node.nextSibling();                  // in a descendant with no more children; traverse</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_101'/>
+101
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_101'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            else {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_102'/>
+102
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_102'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                while (true) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_103'/>
+103
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_103'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                    node = node.parent();                   // pop out of descendants</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_104'/>
+104
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_104'>2</a>
+<span>
+
+1. findNextNode : negated conditional &rarr; KILLED<br/>
+
+2. findNextNode : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                    if (node == null || root.equals(node))</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_105'/>
+105
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_105'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                        return null;                        // got back to root; complete</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_106'/>
+106
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_106'>1</a>
+<span>
+
+1. findNextNode : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                    if (node.nextSibling() != null) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_107'/>
+107
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_107'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                        node = node.nextSibling();          // traverse</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_108'/>
+108
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_108'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                        break;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_109'/>
+109
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_109'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_110'/>
+110
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_110'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_111'/>
+111
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_111'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_112'/>
+112
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_112'>1</a>
+<span>
+
+1. findNextNode : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            if (node == null)</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_113'/>
+113
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_113'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                return null;                                // reached the end</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_114'/>
+114
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_114'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_115'/>
+115
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_115'>1</a>
+<span>
+
+1. findNextNode : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            if (type.isInstance(node))</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_116'/>
+116
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_116'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                //noinspection unchecked</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_117'/>
+117
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_117'>1</a>
+<span>
+
+1. findNextNode : replaced return value with null for org/jsoup/nodes/NodeIterator::findNextNode &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                return (T) node;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_118'/>
+118
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_118'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_119'/>
+119
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_119'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_120'/>
+120
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_120'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_121'/>
+121
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_121'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override public void remove() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_122'/>
+122
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_122'>1</a>
+<span>
+
+1. remove : removed call to org/jsoup/nodes/Node::remove &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        current.remove();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_123'/>
+123
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_123'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_124'/>
+124
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_124'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_32'>32</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_32'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>&#60;init&#62;<br/><b>Killed by : </b>none</span></span> removed call to org/jsoup/helper/Validate::notNull &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.jsoup.nodes.NodeIterator,-method=<init>,-methodDesc=(Lorg/jsoup/nodes/Node;Ljava/lang/Class;)V],-indexes=[8],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.jsoup.nodes.NodeIterator,-method=<init>,-methodDesc=(Lorg/jsoup/nodes/Node;Ljava/lang/Class;)V],-indexes=[8],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.jsoup.nodes.NodeIterator,-method=<init>,-methodDesc=(Lorg/jsoup/nodes/Node;Ljava/lang/Class;)V],-indexes=[8],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>org.jsoup.nodes.NodeIteratorTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeIteratorTest]/[method:canIterateFirstEmptySibling()]</li> <li>org.jsoup.nodes.NodeIteratorTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeIteratorTest]/[method:canFilterForElements()]</li> <li>org.jsoup.nodes.NodeIteratorTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeIteratorTest]/[method:hasNextIsPure()]</li> <li>org.jsoup.nodes.NodeIteratorTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeIteratorTest]/[method:canFilterForTextNodes()]</li> <li>org.jsoup.nodes.NodeIteratorTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeIteratorTest]/[method:canIterateJustOneSibling()]</li> <li>org.jsoup.nodes.NodeIteratorTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeIteratorTest]/[method:canIterateNodes()]</li> <li>org.jsoup.nodes.NodeIteratorTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeIteratorTest]/[method:iterateSubTree()]</li> <li>org.jsoup.nodes.NodeIteratorTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeIteratorTest]/[method:canRestart()]</li> <li>org.jsoup.nodes.NodeIteratorTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeIteratorTest]/[method:canRemoveViaNode()]</li> <li>org.jsoup.nodes.NodeIteratorTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeIteratorTest]/[method:canReplace()]</li> <li>org.jsoup.nodes.NodeIteratorTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeIteratorTest]/[method:canRemoveViaIterator()]</li> <li>org.jsoup.nodes.NodeIteratorTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeIteratorTest]/[method:canModifyFilteredElements()]</li> <li>org.jsoup.nodes.NodeIteratorTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeIteratorTest]/[method:canWrap()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:isBlock()]</li> <li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:root()]</li> <li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:elementIs()]</li> <li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:ownerDocument()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testTraverseLambda()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:childNodesAccessorDoesNotVivify()]</li> <li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:svgElementIs()]</li> <li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:firstLastSibling()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testChildThrowsIndexOutOfBoundsWhenCachedChildrenIsNull()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testFilterCallReturnsElement()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testGetTextNodes()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testExpectFirstMessageDoc()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testWholeText()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:emptyDetachesChildren()]</li> <li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:traverse()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testGetDataNodes()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testTraverse()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:nextElementSibling()]</li> <li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:setBaseUriIsRecursive()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testSelectStream()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testGetParents()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testFirstAndLastSiblings()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testGetChildText()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:prevElementSibling()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:select()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testEmptyElementFormatHtml()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testId()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:getNamespacedElementsByTag()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testBrHasSpace()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testHasText()]</li> <li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:clonedNodesHaveOwnerDocsAndIndependentSettings()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testExpectFirst()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testExpectFirstMessage()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:deselectAll()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testBrHasSpaceCaseSensitive()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:doesntDeleteZWJWhenNormalizingText()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:attributeSizeDoesNotAutoVivify()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:buttonTextHasSpace()]</li> <li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:literalAbsPrefix()]</li> <li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:firstAndLastChild()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:insertChildrenArgumentValidation()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testGetElementsWithAttributeValue()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testSetId()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:getElementsByAttributeValueStarting()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:selectDescendents()]</li> <li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:beforeShuffle()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testGetElementsWithAttribute()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:expectFirstThrows()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:expectFirstNode()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testElementSiblingIndexSameContent()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:asList()]</li> <li>org.jsoup.nodes.AttributesTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.AttributesTest]/[method:testIteratorRemove()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testChildrenSizeUncachedAndCached()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testElementSiblingIndex()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testGetText()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testThrowsOnPrependNullText()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testNextElementSiblings()]</li> <li>org.jsoup.nodes.DocumentTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.DocumentTest]/[method:setTextPreservesDocumentStructure()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:accessorsDoNotVivifyAttributes()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testThrowsOnAddNullText()]</li> <li>org.jsoup.nodes.AttributesTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.AttributesTest]/[method:testIteratorRemoveConcurrentException()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testManipulateTextNodes()]</li> <li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:afterShuffle()]</li> <li>org.jsoup.nodes.FormElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.FormElementTest]/[method:actionWithNoBaseUri()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:insertChildrenValidation()]</li> <li>org.jsoup.nodes.DocumentTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.DocumentTest]/[method:testMetaCharsetUpdateDisabled()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testPreviousElementSiblings()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:getElementsByAttributeValueEnding()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:hasText()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:textHasSpacesAfterBlock()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testGetElementsWithAttributeDash()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:getElementsByAttributeStarting()]</li> <li>org.jsoup.nodes.FormElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.FormElementTest]/[method:hasAssociatedControls()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:getElementsByAttributeValueContaining()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testTagNameSet()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:wholeTextRuns()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:emptyAndAddPreviousChild()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testEvalMethods()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:childByIndex()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testNamespacedElements()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:insertChildrenAtPosition()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testSetTag()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testInnerHtml()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testGetElementById()]</li> <li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:absHandlesDotFromIndex()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:deselect()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testNotPretty()]</li> <li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:absHandlesRelativeQuery()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:setTextOnSvgScriptSetsDataNode()]</li> <li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:handlesAbsPrefixOnHasAttr()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:getElementsByAttributeValueNot()]</li> <li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:handleAbsOnFileUris()]</li> <li>org.jsoup.nodes.EntitiesTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.EntitiesTest]/[method:letterDigitEntities()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testClassUpdates()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:getElementsMatchingText()]</li> <li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:handleAbsOnLocalhostFileUris()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testSetText()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testChildSizeWithMixedContent()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:getElementsContainingText()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testShallowCloneToString()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:styleHtmlRoundTrips()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testChildThrowsIndexOutOfBoundsOnMissing()]</li> <li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:changingAttributeValueShouldReplaceExistingAttributeCaseInsensitive()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:elementBrText()]</li> <li>org.jsoup.nodes.DocumentTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.DocumentTest]/[method:testTitles()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testRelativeUrls()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:emptyAndAddPreviousDescendant()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testClosest()]</li> <li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:handlesAbsPrefix()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testClassNames()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testClassDomMethods()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testGetElementsWithClass()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:getElementsByTagName()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testGetSiblings()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testGetSiblingsWithDuplicateContent()]</li> <li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:nodeIsNotASiblingOfItself()]</li> <li>org.jsoup.nodes.DocumentTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.DocumentTest]/[method:forms()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testRelativeIdnUrls()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testContainerOutput()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:getElementsMatchingOwnText()]</li> <li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:handlesAbsOnImage()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:elementIsIterable()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:replaceWithSelf()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testHtmlContainsOuter()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:dataset()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testRoot()]</li> <li>org.jsoup.nodes.FormElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.FormElementTest]/[method:usesOnForCheckboxValueIfNoValueSet()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:doesNotWrapBlocksInPre()]</li> <li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:testRemove()]</li> <li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:testReplace()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:getElementsByIndexEquals()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:preformatFlowsToChildTextNodes()]</li> <li>org.jsoup.nodes.FormElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.FormElementTest]/[method:formDataUsesFirstAttribute()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:classNamesAndAttributeNameIsCaseInsensitive()]</li> <li>org.jsoup.nodes.FormElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.FormElementTest]/[method:adoptedFormsRetainInputs()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testNotActuallyAReparent()]</li> <li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:unwrapNoChildren()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:getElementsByAttributeValueMatching()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testNormalizesInvisiblesInText()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testChainedRemoveAttributes()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testWrapNoop()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:getElementsContainingOwnText()]</li> <li>org.jsoup.nodes.DocumentTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.DocumentTest]/[method:accessorsAreCaseInsensitive()]</li> <li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:handlesAbsOnProtocolessAbsoluteUris()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:cssSelectorUnbalanced()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testIs()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:elementIsNotASiblingOfItself()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testClonesClassnames()]</li> <li>org.jsoup.nodes.DocumentTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.DocumentTest]/[method:testMetaCharsetUpdateEnabledAfterCharsetChange()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:loopMoveChildren()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testNormalizesNbspInText()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:cssSelectorCombined()]</li> <li>org.jsoup.nodes.AttributesTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.AttributesTest]/[method:dontCloneNullUserData()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:booleanAttributeOutput()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:cssSelectorEscaped()]</li> <li>org.jsoup.nodes.FormElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.FormElementTest]/[method:formsAddedAfterParseAreFormElements()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testPrependElement()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testRemovingEmptyClassAttributeWhenLastClassRemoved()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:moveChildrenToOuter()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:clonedElementsHaveOwnerDocsAndIndependentSettings()]</li> <li>org.jsoup.nodes.EntitiesTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.EntitiesTest]/[method:alwaysEscapeLtAndGtInAttributeValues()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:cssSelectorWithAsterisk()]</li> <li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:testReplaceTwice()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:prependChildren()]</li> <li>org.jsoup.nodes.FormElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.FormElementTest]/[method:actionWithNoValue()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:cssEscapedAmp()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testAddNewText()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:moveChildren()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:parentlessToString()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:appendChildren()]</li> <li>org.jsoup.nodes.AttributesTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.AttributesTest]/[method:testBooleans()]</li> <li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:unwrap()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:cssSelectorEscapedClass()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testHashAndEqualsAndValue()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testChildrenElements()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:cssSelectorWithBracket()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testPrependRowToTable()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:cloneRetainsParser()]</li> <li>org.jsoup.nodes.FormElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.FormElementTest]/[method:removeFormElement()]</li> <li>org.jsoup.nodes.FormElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.FormElementTest]/[method:createsFormData()]</li> <li>org.jsoup.nodes.FormElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.FormElementTest]/[method:formElementsAreLive()]</li> <li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:supportsClone()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testLoopedRemoveAttributes()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testPrependText()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:appendNodes()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testAppendRowToTable()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:datanodesOutputExistingCdataInXhtml()]</li> <li>org.jsoup.nodes.FormElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.FormElementTest]/[method:controlsAddedAfterParseAreLinkedWithForms()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testSetHtmlTitle()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:after()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testSetHtml()]</li> <li>org.jsoup.nodes.FormElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.FormElementTest]/[method:createsSubmitableConnection()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:prependNodes()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:spanRunsMaintainSpace()]</li> <li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:before()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:getElementsByAttributeValueMatchingPattern()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testAddNewHtml()]</li> <li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:after()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testAppendTo()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:datanodesOutputCdataInXhtml()]</li> <li>org.jsoup.nodes.DocumentTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.DocumentTest]/[method:parseAndHtmlOnDifferentThreads()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testClone()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:before()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testPrependNewHtml()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testRemoveAfterIndex()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:cssSelectorParentWithId()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testWrapWithSimpleRemainder()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testCssPath()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:cssSelectorWithNonUniqueId()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testReplaceInvalidates()]</li> <li>org.jsoup.nodes.DocumentTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.DocumentTest]/[method:testMetaCharsetUpdateCleanup()]</li> <li>org.jsoup.nodes.DocumentTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.DocumentTest]/[method:testMetaCharsetUpdateNoCharset()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testScriptTextHtmlSetAsData()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testAddNewElement()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testShallowClone()]</li> <li>org.jsoup.nodes.LeafNodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.LeafNodeTest]/[method:doesNotGetAttributesTooEasily()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:moveByAppend()]</li> <li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:forEachNode()]</li> <li>org.jsoup.nodes.DocumentTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.DocumentTest]/[method:testMetaCharsetUpdateUtf8()]</li> <li>org.jsoup.nodes.DocumentTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.DocumentTest]/[method:testMetaCharsetUpdateDisabledNoChanges()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testForEach()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testShadowElementsAreUpdated()]</li> <li>org.jsoup.nodes.DocumentTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.DocumentTest]/[method:expectForm()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testWrap()]</li> <li>org.jsoup.nodes.DocumentTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.DocumentTest]/[method:testClone()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:shadowChildrenOnClone()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:insertChildrenAsCopy()]</li> <li>org.jsoup.nodes.DocumentTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.DocumentTest]/[method:testMetaCharsetUpdateIso8859()]</li> <li>org.jsoup.nodes.DocumentTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.DocumentTest]/[method:framesetSupportsBodyMethod()]</li> <li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:childNodesCopy()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testWrapWithRemainder()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testWrapArtificialStructure()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:attribute()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:cssSelectorWithPipe()]</li> <li>org.jsoup.nodes.DocumentTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.DocumentTest]/[method:testLocation()]</li> <li>org.jsoup.nodes.DocumentTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.DocumentTest]/[method:charsetOnEmptyDoc()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testCssPathDuplicateIds()]</li> <li>org.jsoup.nodes.DocumentTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.DocumentTest]/[method:testShiftJisRoundtrip()]</li> <li>org.jsoup.nodes.AttributeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.AttributeTest]/[method:booleanAttributesAreNotCaseSensitive()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testRemoveBeforeIndex()]</li> <li>org.jsoup.nodes.FormElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.FormElementTest]/[method:formSubmissionCarriesCookiesFromSession()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:cssSelectorDoesntStackOverflow()]</li> <li>org.jsoup.nodes.DocumentTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.DocumentTest]/[method:testOverflowClone()]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_33'>33</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_33'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>&#60;init&#62;<br/><b>Killed by : </b>none</span></span> removed call to org/jsoup/helper/Validate::notNull &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.jsoup.nodes.NodeIterator,-method=<init>,-methodDesc=(Lorg/jsoup/nodes/Node;Ljava/lang/Class;)V],-indexes=[12],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.jsoup.nodes.NodeIterator,-method=<init>,-methodDesc=(Lorg/jsoup/nodes/Node;Ljava/lang/Class;)V],-indexes=[12],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.jsoup.nodes.NodeIterator,-method=<init>,-methodDesc=(Lorg/jsoup/nodes/Node;Ljava/lang/Class;)V],-indexes=[12],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>org.jsoup.nodes.NodeIteratorTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeIteratorTest]/[method:canIterateFirstEmptySibling()]</li> <li>org.jsoup.nodes.NodeIteratorTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeIteratorTest]/[method:canFilterForElements()]</li> <li>org.jsoup.nodes.NodeIteratorTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeIteratorTest]/[method:hasNextIsPure()]</li> <li>org.jsoup.nodes.NodeIteratorTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeIteratorTest]/[method:canFilterForTextNodes()]</li> <li>org.jsoup.nodes.NodeIteratorTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeIteratorTest]/[method:canIterateJustOneSibling()]</li> <li>org.jsoup.nodes.NodeIteratorTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeIteratorTest]/[method:canIterateNodes()]</li> <li>org.jsoup.nodes.NodeIteratorTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeIteratorTest]/[method:iterateSubTree()]</li> <li>org.jsoup.nodes.NodeIteratorTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeIteratorTest]/[method:canRestart()]</li> <li>org.jsoup.nodes.NodeIteratorTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeIteratorTest]/[method:canRemoveViaNode()]</li> <li>org.jsoup.nodes.NodeIteratorTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeIteratorTest]/[method:canReplace()]</li> <li>org.jsoup.nodes.NodeIteratorTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeIteratorTest]/[method:canRemoveViaIterator()]</li> <li>org.jsoup.nodes.NodeIteratorTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeIteratorTest]/[method:canModifyFilteredElements()]</li> <li>org.jsoup.nodes.NodeIteratorTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeIteratorTest]/[method:canWrap()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:isBlock()]</li> <li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:root()]</li> <li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:elementIs()]</li> <li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:ownerDocument()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testTraverseLambda()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:childNodesAccessorDoesNotVivify()]</li> <li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:svgElementIs()]</li> <li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:firstLastSibling()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testChildThrowsIndexOutOfBoundsWhenCachedChildrenIsNull()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testFilterCallReturnsElement()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testGetTextNodes()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testExpectFirstMessageDoc()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testWholeText()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:emptyDetachesChildren()]</li> <li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:traverse()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testGetDataNodes()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testTraverse()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:nextElementSibling()]</li> <li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:setBaseUriIsRecursive()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testSelectStream()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testGetParents()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testFirstAndLastSiblings()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testGetChildText()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:prevElementSibling()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:select()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testEmptyElementFormatHtml()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testId()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:getNamespacedElementsByTag()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testBrHasSpace()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testHasText()]</li> <li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:clonedNodesHaveOwnerDocsAndIndependentSettings()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testExpectFirst()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testExpectFirstMessage()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:deselectAll()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testBrHasSpaceCaseSensitive()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:doesntDeleteZWJWhenNormalizingText()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:attributeSizeDoesNotAutoVivify()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:buttonTextHasSpace()]</li> <li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:literalAbsPrefix()]</li> <li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:firstAndLastChild()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:insertChildrenArgumentValidation()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testGetElementsWithAttributeValue()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testSetId()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:getElementsByAttributeValueStarting()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:selectDescendents()]</li> <li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:beforeShuffle()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testGetElementsWithAttribute()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:expectFirstThrows()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:expectFirstNode()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testElementSiblingIndexSameContent()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:asList()]</li> <li>org.jsoup.nodes.AttributesTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.AttributesTest]/[method:testIteratorRemove()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testChildrenSizeUncachedAndCached()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testElementSiblingIndex()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testGetText()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testThrowsOnPrependNullText()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testNextElementSiblings()]</li> <li>org.jsoup.nodes.DocumentTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.DocumentTest]/[method:setTextPreservesDocumentStructure()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:accessorsDoNotVivifyAttributes()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testThrowsOnAddNullText()]</li> <li>org.jsoup.nodes.AttributesTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.AttributesTest]/[method:testIteratorRemoveConcurrentException()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testManipulateTextNodes()]</li> <li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:afterShuffle()]</li> <li>org.jsoup.nodes.FormElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.FormElementTest]/[method:actionWithNoBaseUri()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:insertChildrenValidation()]</li> <li>org.jsoup.nodes.DocumentTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.DocumentTest]/[method:testMetaCharsetUpdateDisabled()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testPreviousElementSiblings()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:getElementsByAttributeValueEnding()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:hasText()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:textHasSpacesAfterBlock()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testGetElementsWithAttributeDash()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:getElementsByAttributeStarting()]</li> <li>org.jsoup.nodes.FormElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.FormElementTest]/[method:hasAssociatedControls()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:getElementsByAttributeValueContaining()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testTagNameSet()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:wholeTextRuns()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:emptyAndAddPreviousChild()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testEvalMethods()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:childByIndex()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testNamespacedElements()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:insertChildrenAtPosition()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testSetTag()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testInnerHtml()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testGetElementById()]</li> <li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:absHandlesDotFromIndex()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:deselect()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testNotPretty()]</li> <li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:absHandlesRelativeQuery()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:setTextOnSvgScriptSetsDataNode()]</li> <li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:handlesAbsPrefixOnHasAttr()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:getElementsByAttributeValueNot()]</li> <li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:handleAbsOnFileUris()]</li> <li>org.jsoup.nodes.EntitiesTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.EntitiesTest]/[method:letterDigitEntities()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testClassUpdates()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:getElementsMatchingText()]</li> <li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:handleAbsOnLocalhostFileUris()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testSetText()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testChildSizeWithMixedContent()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:getElementsContainingText()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testShallowCloneToString()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:styleHtmlRoundTrips()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testChildThrowsIndexOutOfBoundsOnMissing()]</li> <li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:changingAttributeValueShouldReplaceExistingAttributeCaseInsensitive()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:elementBrText()]</li> <li>org.jsoup.nodes.DocumentTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.DocumentTest]/[method:testTitles()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testRelativeUrls()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:emptyAndAddPreviousDescendant()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testClosest()]</li> <li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:handlesAbsPrefix()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testClassNames()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testClassDomMethods()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testGetElementsWithClass()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:getElementsByTagName()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testGetSiblings()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testGetSiblingsWithDuplicateContent()]</li> <li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:nodeIsNotASiblingOfItself()]</li> <li>org.jsoup.nodes.DocumentTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.DocumentTest]/[method:forms()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testRelativeIdnUrls()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testContainerOutput()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:getElementsMatchingOwnText()]</li> <li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:handlesAbsOnImage()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:elementIsIterable()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:replaceWithSelf()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testHtmlContainsOuter()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:dataset()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testRoot()]</li> <li>org.jsoup.nodes.FormElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.FormElementTest]/[method:usesOnForCheckboxValueIfNoValueSet()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:doesNotWrapBlocksInPre()]</li> <li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:testRemove()]</li> <li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:testReplace()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:getElementsByIndexEquals()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:preformatFlowsToChildTextNodes()]</li> <li>org.jsoup.nodes.FormElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.FormElementTest]/[method:formDataUsesFirstAttribute()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:classNamesAndAttributeNameIsCaseInsensitive()]</li> <li>org.jsoup.nodes.FormElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.FormElementTest]/[method:adoptedFormsRetainInputs()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testNotActuallyAReparent()]</li> <li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:unwrapNoChildren()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:getElementsByAttributeValueMatching()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testNormalizesInvisiblesInText()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testChainedRemoveAttributes()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testWrapNoop()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:getElementsContainingOwnText()]</li> <li>org.jsoup.nodes.DocumentTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.DocumentTest]/[method:accessorsAreCaseInsensitive()]</li> <li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:handlesAbsOnProtocolessAbsoluteUris()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:cssSelectorUnbalanced()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testIs()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:elementIsNotASiblingOfItself()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testClonesClassnames()]</li> <li>org.jsoup.nodes.DocumentTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.DocumentTest]/[method:testMetaCharsetUpdateEnabledAfterCharsetChange()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:loopMoveChildren()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testNormalizesNbspInText()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:cssSelectorCombined()]</li> <li>org.jsoup.nodes.AttributesTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.AttributesTest]/[method:dontCloneNullUserData()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:booleanAttributeOutput()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:cssSelectorEscaped()]</li> <li>org.jsoup.nodes.FormElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.FormElementTest]/[method:formsAddedAfterParseAreFormElements()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testPrependElement()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testRemovingEmptyClassAttributeWhenLastClassRemoved()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:moveChildrenToOuter()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:clonedElementsHaveOwnerDocsAndIndependentSettings()]</li> <li>org.jsoup.nodes.EntitiesTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.EntitiesTest]/[method:alwaysEscapeLtAndGtInAttributeValues()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:cssSelectorWithAsterisk()]</li> <li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:testReplaceTwice()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:prependChildren()]</li> <li>org.jsoup.nodes.FormElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.FormElementTest]/[method:actionWithNoValue()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:cssEscapedAmp()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testAddNewText()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:moveChildren()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:parentlessToString()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:appendChildren()]</li> <li>org.jsoup.nodes.AttributesTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.AttributesTest]/[method:testBooleans()]</li> <li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:unwrap()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:cssSelectorEscapedClass()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testHashAndEqualsAndValue()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testChildrenElements()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:cssSelectorWithBracket()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testPrependRowToTable()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:cloneRetainsParser()]</li> <li>org.jsoup.nodes.FormElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.FormElementTest]/[method:removeFormElement()]</li> <li>org.jsoup.nodes.FormElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.FormElementTest]/[method:createsFormData()]</li> <li>org.jsoup.nodes.FormElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.FormElementTest]/[method:formElementsAreLive()]</li> <li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:supportsClone()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testLoopedRemoveAttributes()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testPrependText()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:appendNodes()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testAppendRowToTable()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:datanodesOutputExistingCdataInXhtml()]</li> <li>org.jsoup.nodes.FormElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.FormElementTest]/[method:controlsAddedAfterParseAreLinkedWithForms()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testSetHtmlTitle()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:after()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testSetHtml()]</li> <li>org.jsoup.nodes.FormElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.FormElementTest]/[method:createsSubmitableConnection()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:prependNodes()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:spanRunsMaintainSpace()]</li> <li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:before()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:getElementsByAttributeValueMatchingPattern()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testAddNewHtml()]</li> <li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:after()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testAppendTo()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:datanodesOutputCdataInXhtml()]</li> <li>org.jsoup.nodes.DocumentTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.DocumentTest]/[method:parseAndHtmlOnDifferentThreads()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testClone()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:before()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testPrependNewHtml()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testRemoveAfterIndex()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:cssSelectorParentWithId()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testWrapWithSimpleRemainder()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testCssPath()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:cssSelectorWithNonUniqueId()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testReplaceInvalidates()]</li> <li>org.jsoup.nodes.DocumentTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.DocumentTest]/[method:testMetaCharsetUpdateCleanup()]</li> <li>org.jsoup.nodes.DocumentTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.DocumentTest]/[method:testMetaCharsetUpdateNoCharset()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testScriptTextHtmlSetAsData()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testAddNewElement()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testShallowClone()]</li> <li>org.jsoup.nodes.LeafNodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.LeafNodeTest]/[method:doesNotGetAttributesTooEasily()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:moveByAppend()]</li> <li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:forEachNode()]</li> <li>org.jsoup.nodes.DocumentTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.DocumentTest]/[method:testMetaCharsetUpdateUtf8()]</li> <li>org.jsoup.nodes.DocumentTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.DocumentTest]/[method:testMetaCharsetUpdateDisabledNoChanges()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testForEach()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testShadowElementsAreUpdated()]</li> <li>org.jsoup.nodes.DocumentTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.DocumentTest]/[method:expectForm()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testWrap()]</li> <li>org.jsoup.nodes.DocumentTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.DocumentTest]/[method:testClone()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:shadowChildrenOnClone()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:insertChildrenAsCopy()]</li> <li>org.jsoup.nodes.DocumentTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.DocumentTest]/[method:testMetaCharsetUpdateIso8859()]</li> <li>org.jsoup.nodes.DocumentTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.DocumentTest]/[method:framesetSupportsBodyMethod()]</li> <li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:childNodesCopy()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testWrapWithRemainder()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testWrapArtificialStructure()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:attribute()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:cssSelectorWithPipe()]</li> <li>org.jsoup.nodes.DocumentTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.DocumentTest]/[method:testLocation()]</li> <li>org.jsoup.nodes.DocumentTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.DocumentTest]/[method:charsetOnEmptyDoc()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testCssPathDuplicateIds()]</li> <li>org.jsoup.nodes.DocumentTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.DocumentTest]/[method:testShiftJisRoundtrip()]</li> <li>org.jsoup.nodes.AttributeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.AttributeTest]/[method:booleanAttributesAreNotCaseSensitive()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testRemoveBeforeIndex()]</li> <li>org.jsoup.nodes.FormElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.FormElementTest]/[method:formSubmissionCarriesCookiesFromSession()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:cssSelectorDoesntStackOverflow()]</li> <li>org.jsoup.nodes.DocumentTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.DocumentTest]/[method:testOverflowClone()]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_36'>36</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_36'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>&#60;init&#62;<br/><b>Killed by : </b>org.jsoup.nodes.NodeIteratorTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeIteratorTest]/[method:canIterateFirstEmptySibling()]</span></span> removed call to org/jsoup/nodes/NodeIterator::restart &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_45'>45</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_45'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>from<br/><b>Killed by : </b>org.jsoup.nodes.NodeIteratorTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeIteratorTest]/[method:canIterateFirstEmptySibling()]</span></span> replaced return value with null for org/jsoup/nodes/NodeIterator::from &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_54'>54</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_54'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>restart<br/><b>Killed by : </b>org.jsoup.nodes.NodeIteratorTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeIteratorTest]/[method:canIterateFirstEmptySibling()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_63'>63</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_63'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>hasNext<br/><b>Killed by : </b>org.jsoup.nodes.NodeIteratorTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeIteratorTest]/[method:canIterateFirstEmptySibling()]</span></span> removed call to org/jsoup/nodes/NodeIterator::maybeFindNext &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_64'>64</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_64'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>hasNext<br/><b>Killed by : </b>org.jsoup.nodes.NodeIteratorTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeIteratorTest]/[method:canIterateFirstEmptySibling()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>hasNext<br/><b>Killed by : </b>org.jsoup.nodes.NodeIteratorTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeIteratorTest]/[method:canIterateFirstEmptySibling()]</span></span> replaced boolean return with true for org/jsoup/nodes/NodeIterator::hasNext &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_68'>68</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_68'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>next<br/><b>Killed by : </b>none</span></span> removed call to org/jsoup/nodes/NodeIterator::maybeFindNext &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.jsoup.nodes.NodeIterator,-method=next,-methodDesc=()Lorg/jsoup/nodes/Node;],-indexes=[4],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.jsoup.nodes.NodeIterator,-method=next,-methodDesc=()Lorg/jsoup/nodes/Node;],-indexes=[4],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.jsoup.nodes.NodeIterator,-method=next,-methodDesc=()Lorg/jsoup/nodes/Node;],-indexes=[4],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>org.jsoup.nodes.NodeIteratorTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeIteratorTest]/[method:canIterateFirstEmptySibling()]</li> <li>org.jsoup.nodes.NodeIteratorTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeIteratorTest]/[method:canFilterForElements()]</li> <li>org.jsoup.nodes.NodeIteratorTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeIteratorTest]/[method:hasNextIsPure()]</li> <li>org.jsoup.nodes.NodeIteratorTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeIteratorTest]/[method:canFilterForTextNodes()]</li> <li>org.jsoup.nodes.NodeIteratorTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeIteratorTest]/[method:canIterateJustOneSibling()]</li> <li>org.jsoup.nodes.NodeIteratorTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeIteratorTest]/[method:canIterateNodes()]</li> <li>org.jsoup.nodes.NodeIteratorTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeIteratorTest]/[method:iterateSubTree()]</li> <li>org.jsoup.nodes.NodeIteratorTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeIteratorTest]/[method:canRestart()]</li> <li>org.jsoup.nodes.NodeIteratorTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeIteratorTest]/[method:canRemoveViaNode()]</li> <li>org.jsoup.nodes.NodeIteratorTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeIteratorTest]/[method:canReplace()]</li> <li>org.jsoup.nodes.NodeIteratorTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeIteratorTest]/[method:canRemoveViaIterator()]</li> <li>org.jsoup.nodes.NodeIteratorTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeIteratorTest]/[method:canModifyFilteredElements()]</li> <li>org.jsoup.nodes.NodeIteratorTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeIteratorTest]/[method:canWrap()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:isBlock()]</li> <li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:root()]</li> <li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:elementIs()]</li> <li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:ownerDocument()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testTraverseLambda()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:childNodesAccessorDoesNotVivify()]</li> <li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:svgElementIs()]</li> <li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:firstLastSibling()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testChildThrowsIndexOutOfBoundsWhenCachedChildrenIsNull()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testFilterCallReturnsElement()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testGetTextNodes()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testExpectFirstMessageDoc()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testWholeText()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:emptyDetachesChildren()]</li> <li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:traverse()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testGetDataNodes()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testTraverse()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:nextElementSibling()]</li> <li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:setBaseUriIsRecursive()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testSelectStream()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testGetParents()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testFirstAndLastSiblings()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testGetChildText()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:prevElementSibling()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:select()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testEmptyElementFormatHtml()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testId()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:getNamespacedElementsByTag()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testBrHasSpace()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testHasText()]</li> <li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:clonedNodesHaveOwnerDocsAndIndependentSettings()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testExpectFirst()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testExpectFirstMessage()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:deselectAll()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testBrHasSpaceCaseSensitive()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:doesntDeleteZWJWhenNormalizingText()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:attributeSizeDoesNotAutoVivify()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:buttonTextHasSpace()]</li> <li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:literalAbsPrefix()]</li> <li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:firstAndLastChild()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:insertChildrenArgumentValidation()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testGetElementsWithAttributeValue()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testSetId()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:getElementsByAttributeValueStarting()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:selectDescendents()]</li> <li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:beforeShuffle()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testGetElementsWithAttribute()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:expectFirstNode()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testElementSiblingIndexSameContent()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:asList()]</li> <li>org.jsoup.nodes.AttributesTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.AttributesTest]/[method:testIteratorRemove()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testChildrenSizeUncachedAndCached()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testElementSiblingIndex()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testGetText()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testThrowsOnPrependNullText()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testNextElementSiblings()]</li> <li>org.jsoup.nodes.DocumentTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.DocumentTest]/[method:setTextPreservesDocumentStructure()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:accessorsDoNotVivifyAttributes()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testThrowsOnAddNullText()]</li> <li>org.jsoup.nodes.AttributesTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.AttributesTest]/[method:testIteratorRemoveConcurrentException()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testManipulateTextNodes()]</li> <li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:afterShuffle()]</li> <li>org.jsoup.nodes.FormElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.FormElementTest]/[method:actionWithNoBaseUri()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:insertChildrenValidation()]</li> <li>org.jsoup.nodes.DocumentTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.DocumentTest]/[method:testMetaCharsetUpdateDisabled()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testPreviousElementSiblings()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:getElementsByAttributeValueEnding()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:hasText()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:textHasSpacesAfterBlock()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testGetElementsWithAttributeDash()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:getElementsByAttributeStarting()]</li> <li>org.jsoup.nodes.FormElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.FormElementTest]/[method:hasAssociatedControls()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:getElementsByAttributeValueContaining()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testTagNameSet()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:wholeTextRuns()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:emptyAndAddPreviousChild()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testEvalMethods()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:childByIndex()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testNamespacedElements()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:insertChildrenAtPosition()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testSetTag()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testInnerHtml()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testGetElementById()]</li> <li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:absHandlesDotFromIndex()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:deselect()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testNotPretty()]</li> <li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:absHandlesRelativeQuery()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:setTextOnSvgScriptSetsDataNode()]</li> <li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:handlesAbsPrefixOnHasAttr()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:getElementsByAttributeValueNot()]</li> <li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:handleAbsOnFileUris()]</li> <li>org.jsoup.nodes.EntitiesTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.EntitiesTest]/[method:letterDigitEntities()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testClassUpdates()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:getElementsMatchingText()]</li> <li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:handleAbsOnLocalhostFileUris()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testSetText()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testChildSizeWithMixedContent()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:getElementsContainingText()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testShallowCloneToString()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:styleHtmlRoundTrips()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testChildThrowsIndexOutOfBoundsOnMissing()]</li> <li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:changingAttributeValueShouldReplaceExistingAttributeCaseInsensitive()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:elementBrText()]</li> <li>org.jsoup.nodes.DocumentTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.DocumentTest]/[method:testTitles()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testRelativeUrls()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:emptyAndAddPreviousDescendant()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testClosest()]</li> <li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:handlesAbsPrefix()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testClassNames()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testClassDomMethods()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testGetElementsWithClass()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:getElementsByTagName()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testGetSiblings()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testGetSiblingsWithDuplicateContent()]</li> <li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:nodeIsNotASiblingOfItself()]</li> <li>org.jsoup.nodes.DocumentTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.DocumentTest]/[method:forms()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testRelativeIdnUrls()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testContainerOutput()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:getElementsMatchingOwnText()]</li> <li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:handlesAbsOnImage()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:elementIsIterable()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:replaceWithSelf()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testHtmlContainsOuter()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:dataset()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testRoot()]</li> <li>org.jsoup.nodes.FormElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.FormElementTest]/[method:usesOnForCheckboxValueIfNoValueSet()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:doesNotWrapBlocksInPre()]</li> <li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:testRemove()]</li> <li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:testReplace()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:getElementsByIndexEquals()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:preformatFlowsToChildTextNodes()]</li> <li>org.jsoup.nodes.FormElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.FormElementTest]/[method:formDataUsesFirstAttribute()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:classNamesAndAttributeNameIsCaseInsensitive()]</li> <li>org.jsoup.nodes.FormElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.FormElementTest]/[method:adoptedFormsRetainInputs()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testNotActuallyAReparent()]</li> <li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:unwrapNoChildren()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:getElementsByAttributeValueMatching()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testNormalizesInvisiblesInText()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testChainedRemoveAttributes()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testWrapNoop()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:getElementsContainingOwnText()]</li> <li>org.jsoup.nodes.DocumentTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.DocumentTest]/[method:accessorsAreCaseInsensitive()]</li> <li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:handlesAbsOnProtocolessAbsoluteUris()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:cssSelectorUnbalanced()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testIs()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:elementIsNotASiblingOfItself()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testClonesClassnames()]</li> <li>org.jsoup.nodes.DocumentTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.DocumentTest]/[method:testMetaCharsetUpdateEnabledAfterCharsetChange()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:loopMoveChildren()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testNormalizesNbspInText()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:cssSelectorCombined()]</li> <li>org.jsoup.nodes.AttributesTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.AttributesTest]/[method:dontCloneNullUserData()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:booleanAttributeOutput()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:cssSelectorEscaped()]</li> <li>org.jsoup.nodes.FormElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.FormElementTest]/[method:formsAddedAfterParseAreFormElements()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testPrependElement()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testRemovingEmptyClassAttributeWhenLastClassRemoved()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:moveChildrenToOuter()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:clonedElementsHaveOwnerDocsAndIndependentSettings()]</li> <li>org.jsoup.nodes.EntitiesTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.EntitiesTest]/[method:alwaysEscapeLtAndGtInAttributeValues()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:cssSelectorWithAsterisk()]</li> <li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:testReplaceTwice()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:prependChildren()]</li> <li>org.jsoup.nodes.FormElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.FormElementTest]/[method:actionWithNoValue()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:cssEscapedAmp()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testAddNewText()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:moveChildren()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:parentlessToString()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:appendChildren()]</li> <li>org.jsoup.nodes.AttributesTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.AttributesTest]/[method:testBooleans()]</li> <li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:unwrap()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:cssSelectorEscapedClass()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testHashAndEqualsAndValue()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testChildrenElements()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:cssSelectorWithBracket()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testPrependRowToTable()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:cloneRetainsParser()]</li> <li>org.jsoup.nodes.FormElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.FormElementTest]/[method:removeFormElement()]</li> <li>org.jsoup.nodes.FormElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.FormElementTest]/[method:createsFormData()]</li> <li>org.jsoup.nodes.FormElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.FormElementTest]/[method:formElementsAreLive()]</li> <li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:supportsClone()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testLoopedRemoveAttributes()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testPrependText()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:appendNodes()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testAppendRowToTable()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:datanodesOutputExistingCdataInXhtml()]</li> <li>org.jsoup.nodes.FormElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.FormElementTest]/[method:controlsAddedAfterParseAreLinkedWithForms()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testSetHtmlTitle()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:after()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testSetHtml()]</li> <li>org.jsoup.nodes.FormElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.FormElementTest]/[method:createsSubmitableConnection()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:prependNodes()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:spanRunsMaintainSpace()]</li> <li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:before()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:getElementsByAttributeValueMatchingPattern()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testAddNewHtml()]</li> <li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:after()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testAppendTo()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:datanodesOutputCdataInXhtml()]</li> <li>org.jsoup.nodes.DocumentTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.DocumentTest]/[method:parseAndHtmlOnDifferentThreads()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testClone()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:before()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testPrependNewHtml()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testRemoveAfterIndex()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:cssSelectorParentWithId()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testWrapWithSimpleRemainder()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testCssPath()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:cssSelectorWithNonUniqueId()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testReplaceInvalidates()]</li> <li>org.jsoup.nodes.DocumentTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.DocumentTest]/[method:testMetaCharsetUpdateCleanup()]</li> <li>org.jsoup.nodes.DocumentTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.DocumentTest]/[method:testMetaCharsetUpdateNoCharset()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testScriptTextHtmlSetAsData()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testAddNewElement()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testShallowClone()]</li> <li>org.jsoup.nodes.LeafNodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.LeafNodeTest]/[method:doesNotGetAttributesTooEasily()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:moveByAppend()]</li> <li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:forEachNode()]</li> <li>org.jsoup.nodes.DocumentTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.DocumentTest]/[method:testMetaCharsetUpdateUtf8()]</li> <li>org.jsoup.nodes.DocumentTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.DocumentTest]/[method:testMetaCharsetUpdateDisabledNoChanges()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testForEach()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testShadowElementsAreUpdated()]</li> <li>org.jsoup.nodes.DocumentTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.DocumentTest]/[method:expectForm()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testWrap()]</li> <li>org.jsoup.nodes.DocumentTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.DocumentTest]/[method:testClone()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:shadowChildrenOnClone()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:insertChildrenAsCopy()]</li> <li>org.jsoup.nodes.DocumentTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.DocumentTest]/[method:testMetaCharsetUpdateIso8859()]</li> <li>org.jsoup.nodes.DocumentTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.DocumentTest]/[method:framesetSupportsBodyMethod()]</li> <li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:childNodesCopy()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testWrapWithRemainder()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testWrapArtificialStructure()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:attribute()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:cssSelectorWithPipe()]</li> <li>org.jsoup.nodes.DocumentTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.DocumentTest]/[method:testLocation()]</li> <li>org.jsoup.nodes.DocumentTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.DocumentTest]/[method:charsetOnEmptyDoc()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testCssPathDuplicateIds()]</li> <li>org.jsoup.nodes.DocumentTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.DocumentTest]/[method:testShiftJisRoundtrip()]</li> <li>org.jsoup.nodes.AttributeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.AttributeTest]/[method:booleanAttributesAreNotCaseSensitive()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testRemoveBeforeIndex()]</li> <li>org.jsoup.nodes.FormElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.FormElementTest]/[method:formSubmissionCarriesCookiesFromSession()]</li> <li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:cssSelectorDoesntStackOverflow()]</li> <li>org.jsoup.nodes.DocumentTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.DocumentTest]/[method:testOverflowClone()]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_69'>69</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_69'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>next<br/><b>Killed by : </b>org.jsoup.nodes.NodeIteratorTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeIteratorTest]/[method:canIterateFirstEmptySibling()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_76'>76</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_76'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>next<br/><b>Killed by : </b>org.jsoup.nodes.NodeIteratorTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeIteratorTest]/[method:canIterateFirstEmptySibling()]</span></span> replaced return value with null for org/jsoup/nodes/NodeIterator::next &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_83'>83</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_83'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>maybeFindNext<br/><b>Killed by : </b>org.jsoup.nodes.NodeIteratorTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeIteratorTest]/[method:canIterateFirstEmptySibling()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_86'>86</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_86'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>maybeFindNext<br/><b>Killed by : </b>org.jsoup.nodes.NodeIteratorTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeIteratorTest]/[method:canRemoveViaNode()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='TIMED_OUT'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>maybeFindNext<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; TIMED_OUT</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_95'>95</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_95'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>findNextNode<br/><b>Killed by : </b>org.jsoup.nodes.NodeIteratorTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeIteratorTest]/[method:canIterateFirstEmptySibling()]</span></span> changed conditional boundary &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>findNextNode<br/><b>Killed by : </b>org.jsoup.nodes.NodeIteratorTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeIteratorTest]/[method:canIterateFirstEmptySibling()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_97'>97</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_97'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>findNextNode<br/><b>Killed by : </b>org.jsoup.nodes.NodeIteratorTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeIteratorTest]/[method:canIterateFirstEmptySibling()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_99'>99</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_99'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>findNextNode<br/><b>Killed by : </b>org.jsoup.nodes.NodeIteratorTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeIteratorTest]/[method:canIterateFirstEmptySibling()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_104'>104</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_104'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>findNextNode<br/><b>Killed by : </b>org.jsoup.nodes.NodeIteratorTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeIteratorTest]/[method:canFilterForElements()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>findNextNode<br/><b>Killed by : </b>org.jsoup.nodes.NodeIteratorTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeIteratorTest]/[method:canFilterForElements()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_106'>106</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_106'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>findNextNode<br/><b>Killed by : </b>org.jsoup.nodes.NodeIteratorTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeIteratorTest]/[method:canFilterForElements()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_112'>112</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_112'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>findNextNode<br/><b>Killed by : </b>org.jsoup.nodes.NodeIteratorTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeIteratorTest]/[method:canIterateFirstEmptySibling()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_115'>115</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_115'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>findNextNode<br/><b>Killed by : </b>org.jsoup.nodes.NodeIteratorTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeIteratorTest]/[method:canIterateFirstEmptySibling()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_117'>117</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_117'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>findNextNode<br/><b>Killed by : </b>org.jsoup.nodes.NodeIteratorTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeIteratorTest]/[method:canIterateFirstEmptySibling()]</span></span> replaced return value with null for org/jsoup/nodes/NodeIterator::findNextNode &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1a82c5b5_122'>122</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1a82c5b5_122'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>remove<br/><b>Killed by : </b>org.jsoup.nodes.NodeIteratorTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeIteratorTest]/[method:canRemoveViaIterator()]</span></span> removed call to org/jsoup/nodes/Node::remove &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+
+<li class='mutator'>CONDITIONALS_BOUNDARY</li>
+
+<li class='mutator'>EMPTY_RETURNS</li>
+
+<li class='mutator'>FALSE_RETURNS</li>
+
+<li class='mutator'>INCREMENTS</li>
+
+<li class='mutator'>INVERT_NEGS</li>
+
+<li class='mutator'>MATH</li>
+
+<li class='mutator'>NEGATE_CONDITIONALS</li>
+
+<li class='mutator'>NULL_RETURNS</li>
+
+<li class='mutator'>PRIMITIVE_RETURNS</li>
+
+<li class='mutator'>TRUE_RETURNS</li>
+
+<li class='mutator'>VOID_METHOD_CALLS</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>org.jsoup.nodes.NodeIteratorTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeIteratorTest]/[method:canIterateFirstEmptySibling()] (1 ms)</li><li>org.jsoup.nodes.NodeIteratorTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeIteratorTest]/[method:canFilterForElements()] (2 ms)</li><li>org.jsoup.nodes.NodeIteratorTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeIteratorTest]/[method:hasNextIsPure()] (1 ms)</li><li>org.jsoup.nodes.NodeIteratorTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeIteratorTest]/[method:canFilterForTextNodes()] (2 ms)</li><li>org.jsoup.nodes.NodeIteratorTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeIteratorTest]/[method:canIterateJustOneSibling()] (2 ms)</li><li>org.jsoup.nodes.NodeIteratorTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeIteratorTest]/[method:canIterateNodes()] (2 ms)</li><li>org.jsoup.nodes.NodeIteratorTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeIteratorTest]/[method:iterateSubTree()] (1 ms)</li><li>org.jsoup.nodes.NodeIteratorTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeIteratorTest]/[method:canRestart()] (2 ms)</li><li>org.jsoup.nodes.NodeIteratorTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeIteratorTest]/[method:canRemoveViaNode()] (2 ms)</li><li>org.jsoup.nodes.NodeIteratorTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeIteratorTest]/[method:canReplace()] (2 ms)</li><li>org.jsoup.nodes.NodeIteratorTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeIteratorTest]/[method:canRemoveViaIterator()] (5 ms)</li><li>org.jsoup.nodes.NodeIteratorTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeIteratorTest]/[method:canModifyFilteredElements()] (7 ms)</li><li>org.jsoup.nodes.NodeIteratorTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeIteratorTest]/[method:canWrap()] (2 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:isBlock()] (1 ms)</li><li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:root()] (1 ms)</li><li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:elementIs()] (1 ms)</li><li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:ownerDocument()] (1 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testTraverseLambda()] (2 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:childNodesAccessorDoesNotVivify()] (2 ms)</li><li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:svgElementIs()] (2 ms)</li><li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:firstLastSibling()] (1 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testChildThrowsIndexOutOfBoundsWhenCachedChildrenIsNull()] (3 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testFilterCallReturnsElement()] (4 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testGetTextNodes()] (2 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testExpectFirstMessageDoc()] (3 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testWholeText()] (2 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:emptyDetachesChildren()] (4 ms)</li><li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:traverse()] (4 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testGetDataNodes()] (2 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testTraverse()] (5 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:nextElementSibling()] (1 ms)</li><li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:setBaseUriIsRecursive()] (1 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testSelectStream()] (3 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testGetParents()] (4 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testFirstAndLastSiblings()] (2 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testGetChildText()] (2 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:prevElementSibling()] (1 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:select()] (2 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testEmptyElementFormatHtml()] (2 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testId()] (3 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:getNamespacedElementsByTag()] (1 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testBrHasSpace()] (2 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testHasText()] (5 ms)</li><li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:clonedNodesHaveOwnerDocsAndIndependentSettings()] (3 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testExpectFirst()] (4 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testExpectFirstMessage()] (7 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:deselectAll()] (2 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testBrHasSpaceCaseSensitive()] (3 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:doesntDeleteZWJWhenNormalizingText()] (4 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:attributeSizeDoesNotAutoVivify()] (2 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:buttonTextHasSpace()] (2 ms)</li><li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:literalAbsPrefix()] (1 ms)</li><li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:firstAndLastChild()] (1 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:insertChildrenArgumentValidation()] (3 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testGetElementsWithAttributeValue()] (1 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testSetId()] (2 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:getElementsByAttributeValueStarting()] (2 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:selectDescendents()] (2 ms)</li><li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:beforeShuffle()] (1 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testGetElementsWithAttribute()] (2 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:expectFirstThrows()] (5 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:expectFirstNode()] (2 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testElementSiblingIndexSameContent()] (2 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:asList()] (2 ms)</li><li>org.jsoup.nodes.AttributesTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.AttributesTest]/[method:testIteratorRemove()] (4 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testChildrenSizeUncachedAndCached()] (2 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testElementSiblingIndex()] (2 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testGetText()] (2 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testThrowsOnPrependNullText()] (5 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testNextElementSiblings()] (2 ms)</li><li>org.jsoup.nodes.DocumentTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.DocumentTest]/[method:setTextPreservesDocumentStructure()] (3 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:accessorsDoNotVivifyAttributes()] (3 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testThrowsOnAddNullText()] (5 ms)</li><li>org.jsoup.nodes.AttributesTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.AttributesTest]/[method:testIteratorRemoveConcurrentException()] (4 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testManipulateTextNodes()] (2 ms)</li><li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:afterShuffle()] (3 ms)</li><li>org.jsoup.nodes.FormElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.FormElementTest]/[method:actionWithNoBaseUri()] (3 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:insertChildrenValidation()] (6 ms)</li><li>org.jsoup.nodes.DocumentTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.DocumentTest]/[method:testMetaCharsetUpdateDisabled()] (3 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testPreviousElementSiblings()] (3 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:getElementsByAttributeValueEnding()] (4 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:hasText()] (2 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:textHasSpacesAfterBlock()] (7 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testGetElementsWithAttributeDash()] (3 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:getElementsByAttributeStarting()] (3 ms)</li><li>org.jsoup.nodes.FormElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.FormElementTest]/[method:hasAssociatedControls()] (3 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:getElementsByAttributeValueContaining()] (5 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testTagNameSet()] (2 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:wholeTextRuns()] (2 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:emptyAndAddPreviousChild()] (2 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testEvalMethods()] (3 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:childByIndex()] (1 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testNamespacedElements()] (4 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:insertChildrenAtPosition()] (2 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testSetTag()] (4 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testInnerHtml()] (2 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testGetElementById()] (3 ms)</li><li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:absHandlesDotFromIndex()] (2 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:deselect()] (2 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testNotPretty()] (2 ms)</li><li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:absHandlesRelativeQuery()] (2 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:setTextOnSvgScriptSetsDataNode()] (5 ms)</li><li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:handlesAbsPrefixOnHasAttr()] (2 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:getElementsByAttributeValueNot()] (3 ms)</li><li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:handleAbsOnFileUris()] (2 ms)</li><li>org.jsoup.nodes.EntitiesTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.EntitiesTest]/[method:letterDigitEntities()] (2 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testClassUpdates()] (3 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:getElementsMatchingText()] (2 ms)</li><li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:handleAbsOnLocalhostFileUris()] (2 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testSetText()] (2 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testChildSizeWithMixedContent()] (10 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:getElementsContainingText()] (2 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testShallowCloneToString()] (2 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:styleHtmlRoundTrips()] (2 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testChildThrowsIndexOutOfBoundsOnMissing()] (3 ms)</li><li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:changingAttributeValueShouldReplaceExistingAttributeCaseInsensitive()] (1 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:elementBrText()] (2 ms)</li><li>org.jsoup.nodes.DocumentTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.DocumentTest]/[method:testTitles()] (5 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testRelativeUrls()] (4 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:emptyAndAddPreviousDescendant()] (3 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testClosest()] (4 ms)</li><li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:handlesAbsPrefix()] (1 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testClassNames()] (5 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testClassDomMethods()] (3 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testGetElementsWithClass()] (6 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:getElementsByTagName()] (6 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testGetSiblings()] (2 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testGetSiblingsWithDuplicateContent()] (2 ms)</li><li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:nodeIsNotASiblingOfItself()] (2 ms)</li><li>org.jsoup.nodes.DocumentTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.DocumentTest]/[method:forms()] (6 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testRelativeIdnUrls()] (4 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testContainerOutput()] (4 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:getElementsMatchingOwnText()] (3 ms)</li><li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:handlesAbsOnImage()] (3 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:elementIsIterable()] (5 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:replaceWithSelf()] (5 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testHtmlContainsOuter()] (4 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:dataset()] (3 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testRoot()] (2 ms)</li><li>org.jsoup.nodes.FormElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.FormElementTest]/[method:usesOnForCheckboxValueIfNoValueSet()] (2 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:doesNotWrapBlocksInPre()] (4 ms)</li><li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:testRemove()] (1 ms)</li><li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:testReplace()] (1 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:getElementsByIndexEquals()] (2 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:preformatFlowsToChildTextNodes()] (6 ms)</li><li>org.jsoup.nodes.FormElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.FormElementTest]/[method:formDataUsesFirstAttribute()] (2 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:classNamesAndAttributeNameIsCaseInsensitive()] (3 ms)</li><li>org.jsoup.nodes.FormElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.FormElementTest]/[method:adoptedFormsRetainInputs()] (2 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testNotActuallyAReparent()] (3 ms)</li><li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:unwrapNoChildren()] (1 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:getElementsByAttributeValueMatching()] (12 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testNormalizesInvisiblesInText()] (2 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testChainedRemoveAttributes()] (1 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testWrapNoop()] (2 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:getElementsContainingOwnText()] (6 ms)</li><li>org.jsoup.nodes.DocumentTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.DocumentTest]/[method:accessorsAreCaseInsensitive()] (5 ms)</li><li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:handlesAbsOnProtocolessAbsoluteUris()] (4 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:cssSelectorUnbalanced()] (3 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testIs()] (11 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:elementIsNotASiblingOfItself()] (2 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testClonesClassnames()] (3 ms)</li><li>org.jsoup.nodes.DocumentTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.DocumentTest]/[method:testMetaCharsetUpdateEnabledAfterCharsetChange()] (5 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:loopMoveChildren()] (3 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testNormalizesNbspInText()] (3 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:cssSelectorCombined()] (5 ms)</li><li>org.jsoup.nodes.AttributesTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.AttributesTest]/[method:dontCloneNullUserData()] (6 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:booleanAttributeOutput()] (2 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:cssSelectorEscaped()] (3 ms)</li><li>org.jsoup.nodes.FormElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.FormElementTest]/[method:formsAddedAfterParseAreFormElements()] (2 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testPrependElement()] (3 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testRemovingEmptyClassAttributeWhenLastClassRemoved()] (2 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:moveChildrenToOuter()] (1 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:clonedElementsHaveOwnerDocsAndIndependentSettings()] (8 ms)</li><li>org.jsoup.nodes.EntitiesTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.EntitiesTest]/[method:alwaysEscapeLtAndGtInAttributeValues()] (2 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:cssSelectorWithAsterisk()] (3 ms)</li><li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:testReplaceTwice()] (4 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:prependChildren()] (2 ms)</li><li>org.jsoup.nodes.FormElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.FormElementTest]/[method:actionWithNoValue()] (2 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:cssEscapedAmp()] (3 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testAddNewText()] (2 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:moveChildren()] (2 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:parentlessToString()] (3 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:appendChildren()] (2 ms)</li><li>org.jsoup.nodes.AttributesTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.AttributesTest]/[method:testBooleans()] (9 ms)</li><li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:unwrap()] (2 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:cssSelectorEscapedClass()] (3 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testHashAndEqualsAndValue()] (3 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testChildrenElements()] (4 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:cssSelectorWithBracket()] (8 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testPrependRowToTable()] (3 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:cloneRetainsParser()] (3 ms)</li><li>org.jsoup.nodes.FormElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.FormElementTest]/[method:removeFormElement()] (7 ms)</li><li>org.jsoup.nodes.FormElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.FormElementTest]/[method:createsFormData()] (3 ms)</li><li>org.jsoup.nodes.FormElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.FormElementTest]/[method:formElementsAreLive()] (3 ms)</li><li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:supportsClone()] (2 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testLoopedRemoveAttributes()] (2 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testPrependText()] (2 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:appendNodes()] (3 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testAppendRowToTable()] (7 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:datanodesOutputExistingCdataInXhtml()] (6 ms)</li><li>org.jsoup.nodes.FormElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.FormElementTest]/[method:controlsAddedAfterParseAreLinkedWithForms()] (2 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testSetHtmlTitle()] (4 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:after()] (4 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testSetHtml()] (2 ms)</li><li>org.jsoup.nodes.FormElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.FormElementTest]/[method:createsSubmitableConnection()] (4 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:prependNodes()] (3 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:spanRunsMaintainSpace()] (5 ms)</li><li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:before()] (3 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:getElementsByAttributeValueMatchingPattern()] (21 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testAddNewHtml()] (4 ms)</li><li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:after()] (4 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testAppendTo()] (2 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:datanodesOutputCdataInXhtml()] (7 ms)</li><li>org.jsoup.nodes.DocumentTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.DocumentTest]/[method:parseAndHtmlOnDifferentThreads()] (16 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testClone()] (3 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:before()] (6 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testPrependNewHtml()] (3 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testRemoveAfterIndex()] (5 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:cssSelectorParentWithId()] (5 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testWrapWithSimpleRemainder()] (5 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testCssPath()] (5 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:cssSelectorWithNonUniqueId()] (4 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testReplaceInvalidates()] (12 ms)</li><li>org.jsoup.nodes.DocumentTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.DocumentTest]/[method:testMetaCharsetUpdateCleanup()] (3 ms)</li><li>org.jsoup.nodes.DocumentTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.DocumentTest]/[method:testMetaCharsetUpdateNoCharset()] (5 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testScriptTextHtmlSetAsData()] (4 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testAddNewElement()] (3 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testShallowClone()] (6 ms)</li><li>org.jsoup.nodes.LeafNodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.LeafNodeTest]/[method:doesNotGetAttributesTooEasily()] (4 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:moveByAppend()] (3 ms)</li><li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:forEachNode()] (2 ms)</li><li>org.jsoup.nodes.DocumentTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.DocumentTest]/[method:testMetaCharsetUpdateUtf8()] (5 ms)</li><li>org.jsoup.nodes.DocumentTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.DocumentTest]/[method:testMetaCharsetUpdateDisabledNoChanges()] (10 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testForEach()] (5 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testShadowElementsAreUpdated()] (5 ms)</li><li>org.jsoup.nodes.DocumentTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.DocumentTest]/[method:expectForm()] (26 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testWrap()] (3 ms)</li><li>org.jsoup.nodes.DocumentTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.DocumentTest]/[method:testClone()] (8 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:shadowChildrenOnClone()] (5 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:insertChildrenAsCopy()] (2 ms)</li><li>org.jsoup.nodes.DocumentTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.DocumentTest]/[method:testMetaCharsetUpdateIso8859()] (9 ms)</li><li>org.jsoup.nodes.DocumentTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.DocumentTest]/[method:framesetSupportsBodyMethod()] (12 ms)</li><li>org.jsoup.nodes.NodeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.NodeTest]/[method:childNodesCopy()] (2 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testWrapWithRemainder()] (5 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testWrapArtificialStructure()] (3 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:attribute()] (15 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:cssSelectorWithPipe()] (23 ms)</li><li>org.jsoup.nodes.DocumentTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.DocumentTest]/[method:testLocation()] (32 ms)</li><li>org.jsoup.nodes.DocumentTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.DocumentTest]/[method:charsetOnEmptyDoc()] (11 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testCssPathDuplicateIds()] (26 ms)</li><li>org.jsoup.nodes.DocumentTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.DocumentTest]/[method:testShiftJisRoundtrip()] (20 ms)</li><li>org.jsoup.nodes.AttributeTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.AttributeTest]/[method:booleanAttributesAreNotCaseSensitive()] (36 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:testRemoveBeforeIndex()] (111 ms)</li><li>org.jsoup.nodes.FormElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.FormElementTest]/[method:formSubmissionCarriesCookiesFromSession()] (449 ms)</li><li>org.jsoup.nodes.ElementTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.ElementTest]/[method:cssSelectorDoesntStackOverflow()] (3043 ms)</li><li>org.jsoup.nodes.DocumentTest.[engine:junit-jupiter]/[class:org.jsoup.nodes.DocumentTest]/[method:testOverflowClone()] (4487 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='https://pitest.org'>PIT</a> 1.22.1
+
+</body>
+</html>

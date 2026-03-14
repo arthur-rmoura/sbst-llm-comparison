@@ -1,0 +1,3824 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=windows-1252">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>Cleaner.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package org.jsoup.safety;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.jsoup.helper.Validate;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_4'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.jsoup.nodes.Attribute;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.jsoup.nodes.Attributes;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.jsoup.nodes.DataNode;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_7'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.jsoup.nodes.Document;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_8'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.jsoup.nodes.Element;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_9'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.jsoup.nodes.Node;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_10'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.jsoup.nodes.TextNode;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_11'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.jsoup.parser.ParseErrorList;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_12'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.jsoup.parser.Parser;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_13'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.jsoup.select.NodeVisitor;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_14'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_15'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.List;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_16'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_17'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import static org.jsoup.internal.SharedConstants.DummyUri;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_18'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_19'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_20'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> The safelist based HTML cleaner. Use to ensure that end-user provided HTML contains only the elements and attributes</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_21'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> that you are expecting; no junk, and no cross-site scripting attacks!</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_22'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> &#60;p&#62;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_23'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> The HTML cleaner parses the input as HTML and then runs it through a safe-list, so the output HTML can only contain</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_24'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> HTML that is allowed by the safelist.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_25'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> &#60;/p&#62;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_26'/>
+26
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_26'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> &#60;p&#62;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_27'/>
+27
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_27'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> It is assumed that the input HTML is a body fragment; the clean methods only pull from the source&#39;s body, and the</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_28'/>
+28
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_28'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> canned safe-lists only allow body contained tags.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_29'/>
+29
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_29'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> &#60;/p&#62;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_30'/>
+30
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_30'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> &#60;p&#62;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_31'/>
+31
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_31'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> Rather than interacting directly with a Cleaner object, generally see the {@code clean} methods in {@link org.jsoup.Jsoup}.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_32'/>
+32
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_32'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> &#60;/p&#62;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_33'/>
+33
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_33'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_34'/>
+34
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_34'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>public class Cleaner {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_35'/>
+35
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_35'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private final Safelist safelist;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_36'/>
+36
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_36'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_37'/>
+37
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_37'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_38'/>
+38
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_38'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     Create a new cleaner, that sanitizes documents using the supplied safelist.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_39'/>
+39
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_39'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     @param safelist safe-list to clean with</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_40'/>
+40
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_40'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_41'/>
+41
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_41'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    public Cleaner(Safelist safelist) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_42'/>
+42
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_42'>1</a>
+<span>
+
+1. &#60;init&#62; : removed call to org/jsoup/helper/Validate::notNull &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        Validate.notNull(safelist);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_43'/>
+43
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_43'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.safelist = safelist;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_44'/>
+44
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_44'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_45'/>
+45
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_45'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_46'/>
+46
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_46'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_47'/>
+47
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_47'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     Creates a new, clean document, from the original dirty document, containing only elements allowed by the safelist.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_48'/>
+48
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_48'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     The original document is not modified. Only elements from the dirty document&#39;s &#60;code&#62;body&#60;/code&#62; are used. The</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_49'/>
+49
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_49'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     OutputSettings of the original document are cloned into the clean document.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_50'/>
+50
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_50'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     @param dirtyDocument Untrusted base document to clean.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_51'/>
+51
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_51'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     @return cleaned document.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_52'/>
+52
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_52'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_53'/>
+53
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_53'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public Document clean(Document dirtyDocument) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_54'/>
+54
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_54'>1</a>
+<span>
+
+1. clean : removed call to org/jsoup/helper/Validate::notNull &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        Validate.notNull(dirtyDocument);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_55'/>
+55
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_55'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_56'/>
+56
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_56'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        Document clean = Document.createShell(dirtyDocument.baseUri());</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_57'/>
+57
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_57'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        copySafeNodes(dirtyDocument.body(), clean.body());</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_58'/>
+58
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_58'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        clean.outputSettings(dirtyDocument.outputSettings().clone());</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_59'/>
+59
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_59'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_60'/>
+60
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_60'>1</a>
+<span>
+
+1. clean : replaced return value with null for org/jsoup/safety/Cleaner::clean &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return clean;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_61'/>
+61
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_61'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_62'/>
+62
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_62'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_63'/>
+63
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_63'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_64'/>
+64
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_64'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     Determines if the input document&#39;s &#60;b&#62;body&#60;/b&#62; is valid, against the safelist. It is considered valid if all the</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_65'/>
+65
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_65'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     tags and attributes in the input HTML are allowed by the safelist, and that there is no content in the</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_66'/>
+66
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_66'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     &#60;code&#62;head&#60;/code&#62;.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_67'/>
+67
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_67'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     &#60;p&#62;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_68'/>
+68
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_68'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     This method is intended to be used in a user interface as a validator for user input. Note that regardless of the</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_69'/>
+69
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_69'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     output of this method, the input document &#60;b&#62;must always&#60;/b&#62; be normalized using a method such as</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_70'/>
+70
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_70'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     {@link #clean(Document)}, and the result of that method used to store or serialize the document before later reuse</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_71'/>
+71
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_71'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     such as presentation to end users. This ensures that enforced attributes are set correctly, and that any</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_72'/>
+72
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_72'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     differences between how a given browser and how jsoup parses the input HTML are normalized.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_73'/>
+73
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_73'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     &#60;/p&#62;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_74'/>
+74
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_74'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     &#60;p&#62;Example:</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_75'/>
+75
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_75'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     &#60;pre&#62;{@code</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_76'/>
+76
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_76'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     Document inputDoc = Jsoup.parse(inputHtml);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_77'/>
+77
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_77'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     Cleaner cleaner = new Cleaner(Safelist.relaxed());</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_78'/>
+78
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_78'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     boolean isValid = cleaner.isValid(inputDoc);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_79'/>
+79
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_79'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     Document normalizedDoc = cleaner.clean(inputDoc);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_80'/>
+80
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_80'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     }&#60;/pre&#62;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_81'/>
+81
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_81'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     &#60;/p&#62;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_82'/>
+82
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_82'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     @param dirtyDocument document to test</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_83'/>
+83
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_83'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     @return true if no tags or attributes need to be removed; false if they do</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_84'/>
+84
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_84'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_85'/>
+85
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_85'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public boolean isValid(Document dirtyDocument) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_86'/>
+86
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_86'>1</a>
+<span>
+
+1. isValid : removed call to org/jsoup/helper/Validate::notNull &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        Validate.notNull(dirtyDocument);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_87'/>
+87
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_87'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_88'/>
+88
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_88'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        Document clean = Document.createShell(dirtyDocument.baseUri());</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_89'/>
+89
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_89'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        int numDiscarded = copySafeNodes(dirtyDocument.body(), clean.body());</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_90'/>
+90
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_90'>2</a>
+<span>
+
+1. isValid : replaced boolean return with true for org/jsoup/safety/Cleaner::isValid &rarr; KILLED<br/>
+
+2. isValid : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return numDiscarded == 0</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_91'/>
+91
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_91'>1</a>
+<span>
+
+1. isValid : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            &#38;&#38; dirtyDocument.head().childNodes().isEmpty(); // because we only look at the body, but we start from a shell, make sure there&#39;s nothing in the head</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_92'/>
+92
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_92'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_93'/>
+93
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_93'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_94'/>
+94
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_94'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_95'/>
+95
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_95'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     Determines if the input document&#39;s &#60;b&#62;body HTML&#60;/b&#62; is valid, against the safelist. It is considered valid if all</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_96'/>
+96
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_96'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     the tags and attributes in the input HTML are allowed by the safelist.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_97'/>
+97
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_97'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     &#60;p&#62;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_98'/>
+98
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_98'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     This method is intended to be used in a user interface as a validator for user input. Note that regardless of the</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_99'/>
+99
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_99'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     output of this method, the input document &#60;b&#62;must always&#60;/b&#62; be normalized using a method such as</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_100'/>
+100
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_100'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     {@link #clean(Document)}, and the result of that method used to store or serialize the document before later reuse</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_101'/>
+101
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_101'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     such as presentation to end users. This ensures that enforced attributes are set correctly, and that any</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_102'/>
+102
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_102'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     differences between how a given browser and how jsoup parses the input HTML are normalized.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_103'/>
+103
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_103'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     &#60;/p&#62;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_104'/>
+104
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_104'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     &#60;p&#62;Example:</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_105'/>
+105
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_105'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     &#60;pre&#62;{@code</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_106'/>
+106
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_106'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     Document inputDoc = Jsoup.parse(inputHtml);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_107'/>
+107
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_107'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     Cleaner cleaner = new Cleaner(Safelist.relaxed());</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_108'/>
+108
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_108'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     boolean isValid = cleaner.isValidBodyHtml(inputHtml);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_109'/>
+109
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_109'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     Document normalizedDoc = cleaner.clean(inputDoc);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_110'/>
+110
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_110'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     }&#60;/pre&#62;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_111'/>
+111
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_111'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     &#60;/p&#62;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_112'/>
+112
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_112'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     @param bodyHtml HTML fragment to test</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_113'/>
+113
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_113'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     @return true if no tags or attributes need to be removed; false if they do</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_114'/>
+114
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_114'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_115'/>
+115
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_115'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public boolean isValidBodyHtml(String bodyHtml) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_116'/>
+116
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_116'>1</a>
+<span>
+
+1. isValidBodyHtml : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        String baseUri = (safelist.preserveRelativeLinks()) ? DummyUri : &#34;&#34;; // fake base URI to allow relative URLs to remain valid</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_117'/>
+117
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_117'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        Document clean = Document.createShell(baseUri);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_118'/>
+118
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_118'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        Document dirty = Document.createShell(baseUri);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_119'/>
+119
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_119'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        ParseErrorList errorList = ParseErrorList.tracking(1);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_120'/>
+120
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_120'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        List&#60;Node&#62; nodes = Parser.parseFragment(bodyHtml, dirty.body(), baseUri, errorList);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_121'/>
+121
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_121'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        dirty.body().insertChildren(0, nodes);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_122'/>
+122
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_122'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        int numDiscarded = copySafeNodes(dirty.body(), clean.body());</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_123'/>
+123
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_123'>3</a>
+<span>
+
+1. isValidBodyHtml : replaced boolean return with true for org/jsoup/safety/Cleaner::isValidBodyHtml &rarr; KILLED<br/>
+
+2. isValidBodyHtml : negated conditional &rarr; KILLED<br/>
+
+3. isValidBodyHtml : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return numDiscarded == 0 &#38;&#38; errorList.isEmpty();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_124'/>
+124
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_124'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_125'/>
+125
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_125'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_126'/>
+126
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_126'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_127'/>
+127
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_127'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     Iterates the input and copies trusted nodes (tags, attributes, text) into the destination.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_128'/>
+128
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_128'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_129'/>
+129
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_129'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private final class CleaningVisitor implements NodeVisitor {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_130'/>
+130
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_130'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        private int numDiscarded = 0;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_131'/>
+131
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_131'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        private final Element root;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_132'/>
+132
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_132'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        private Element destination; // current element to append nodes to</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_133'/>
+133
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_133'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_134'/>
+134
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_134'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        private CleaningVisitor(Element root, Element destination) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_135'/>
+135
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_135'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            this.root = root;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_136'/>
+136
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_136'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            this.destination = destination;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_137'/>
+137
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_137'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_138'/>
+138
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_138'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_139'/>
+139
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_139'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        @Override public void head(Node source, int depth) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_140'/>
+140
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_140'>1</a>
+<span>
+
+1. head : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            if (source instanceof Element) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_141'/>
+141
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_141'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                Element sourceEl = (Element) source;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_142'/>
+142
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_142'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_143'/>
+143
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_143'>1</a>
+<span>
+
+1. head : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                if (safelist.isSafeTag(sourceEl.normalName())) { // safe, clone and copy safe attrs</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_144'/>
+144
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_144'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                    ElementMeta meta = createSafeElement(sourceEl);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_145'/>
+145
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_145'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                    Element destChild = meta.el;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_146'/>
+146
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_146'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                    destination.appendChild(destChild);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_147'/>
+147
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_147'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_148'/>
+148
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_148'>1</a>
+<span>
+
+1. head : Replaced integer addition with subtraction &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>                    numDiscarded += meta.numAttribsDiscarded;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_149'/>
+149
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_149'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                    destination = destChild;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_150'/>
+150
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_150'>1</a>
+<span>
+
+1. head : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                } else if (source != root) { // not a safe tag, so don&#39;t add. don&#39;t count root against discarded.</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_151'/>
+151
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_151'>1</a>
+<span>
+
+1. head : Replaced integer addition with subtraction &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>                    numDiscarded++;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_152'/>
+152
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_152'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_153'/>
+153
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_153'>1</a>
+<span>
+
+1. head : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            } else if (source instanceof TextNode) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_154'/>
+154
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_154'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                TextNode sourceText = (TextNode) source;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_155'/>
+155
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_155'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                TextNode destText = new TextNode(sourceText.getWholeText());</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_156'/>
+156
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_156'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                destination.appendChild(destText);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_157'/>
+157
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_157'>2</a>
+<span>
+
+1. head : negated conditional &rarr; KILLED<br/>
+
+2. head : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            } else if (source instanceof DataNode &#38;&#38; safelist.isSafeTag(source.parent().normalName())) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_158'/>
+158
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_158'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                DataNode sourceData = (DataNode) source;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_159'/>
+159
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_159'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                DataNode destData = new DataNode(sourceData.getWholeData());</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_160'/>
+160
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_160'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                destination.appendChild(destData);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_161'/>
+161
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_161'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            } else { // else, we don&#39;t care about comments, xml proc instructions, etc</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_162'/>
+162
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_162'>1</a>
+<span>
+
+1. head : Replaced integer addition with subtraction &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>                numDiscarded++;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_163'/>
+163
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_163'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_164'/>
+164
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_164'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_165'/>
+165
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_165'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_166'/>
+166
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_166'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        @Override public void tail(Node source, int depth) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_167'/>
+167
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_167'>2</a>
+<span>
+
+1. tail : negated conditional &rarr; KILLED<br/>
+
+2. tail : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            if (source instanceof Element &#38;&#38; safelist.isSafeTag(source.normalName())) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_168'/>
+168
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_168'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                destination = destination.parent(); // would have descended, so pop destination stack</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_169'/>
+169
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_169'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_170'/>
+170
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_170'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_171'/>
+171
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_171'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_172'/>
+172
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_172'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_173'/>
+173
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_173'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private int copySafeNodes(Element source, Element dest) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_174'/>
+174
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_174'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        CleaningVisitor cleaningVisitor = new CleaningVisitor(source, dest);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_175'/>
+175
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_175'>1</a>
+<span>
+
+1. copySafeNodes : removed call to org/jsoup/safety/Cleaner$CleaningVisitor::traverse &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        cleaningVisitor.traverse(source);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_176'/>
+176
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_176'>1</a>
+<span>
+
+1. copySafeNodes : replaced int return with 0 for org/jsoup/safety/Cleaner::copySafeNodes &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return cleaningVisitor.numDiscarded;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_177'/>
+177
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_177'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_178'/>
+178
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_178'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_179'/>
+179
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_179'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private ElementMeta createSafeElement(Element sourceEl) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_180'/>
+180
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_180'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        Element dest = sourceEl.shallowClone(); // reuses tag, clones attributes and preserves any user data</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_181'/>
+181
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_181'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        String sourceTag = sourceEl.tagName();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_182'/>
+182
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_182'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        Attributes destAttrs = dest.attributes();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_183'/>
+183
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_183'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        dest.clearAttributes(); // clear all non-internal attributes, ready for safe copy</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_184'/>
+184
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_184'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_185'/>
+185
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_185'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        int numDiscarded = 0;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_186'/>
+186
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_186'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        Attributes sourceAttrs = sourceEl.attributes();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_187'/>
+187
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_187'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        for (Attribute sourceAttr : sourceAttrs) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_188'/>
+188
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_188'>1</a>
+<span>
+
+1. createSafeElement : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            if (safelist.isSafeAttribute(sourceTag, sourceEl, sourceAttr))</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_189'/>
+189
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_189'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                destAttrs.put(sourceAttr);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_190'/>
+190
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_190'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            else</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_191'/>
+191
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_191'>1</a>
+<span>
+
+1. createSafeElement : Changed increment from 1 to -1 &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>                numDiscarded++;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_192'/>
+192
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_192'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_193'/>
+193
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_193'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_194'/>
+194
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_194'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_195'/>
+195
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_195'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        Attributes enforcedAttrs = safelist.getEnforcedAttributes(sourceTag);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_196'/>
+196
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_196'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        // special case for &#60;a href rel=nofollow&#62;, only apply to external links:</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_197'/>
+197
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_197'>2</a>
+<span>
+
+1. createSafeElement : negated conditional &rarr; KILLED<br/>
+
+2. createSafeElement : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (sourceEl.nameIs(&#34;a&#34;) &#38;&#38; enforcedAttrs.get(&#34;rel&#34;).equals(&#34;nofollow&#34;)) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_198'/>
+198
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_198'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            String href = sourceEl.absUrl(&#34;href&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_199'/>
+199
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_199'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            String sourceBase = sourceEl.baseUri();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_200'/>
+200
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_200'>3</a>
+<span>
+
+1. createSafeElement : negated conditional &rarr; KILLED<br/>
+
+2. createSafeElement : negated conditional &rarr; KILLED<br/>
+
+3. createSafeElement : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            if (!href.isEmpty() &#38;&#38; !sourceBase.isEmpty() &#38;&#38; href.startsWith(sourceBase)) { // same site, so don&#39;t set the nofollow</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_201'/>
+201
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_201'>1</a>
+<span>
+
+1. createSafeElement : removed call to org/jsoup/nodes/Attributes::remove &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                enforcedAttrs.remove(&#34;rel&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_202'/>
+202
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_202'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_203'/>
+203
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_203'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_204'/>
+204
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_204'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_205'/>
+205
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_205'>1</a>
+<span>
+
+1. createSafeElement : removed call to org/jsoup/nodes/Attributes::addAll &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        destAttrs.addAll(enforcedAttrs);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_206'/>
+206
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_206'>1</a>
+<span>
+
+1. createSafeElement : removed call to org/jsoup/nodes/Attributes::addAll &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        dest.attributes().addAll(destAttrs); // re-attach, if removed in clear</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_207'/>
+207
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_207'>1</a>
+<span>
+
+1. createSafeElement : replaced return value with null for org/jsoup/safety/Cleaner::createSafeElement &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return new ElementMeta(dest, numDiscarded);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_208'/>
+208
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_208'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_209'/>
+209
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_209'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_210'/>
+210
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_210'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private static class ElementMeta {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_211'/>
+211
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_211'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        Element el;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_212'/>
+212
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_212'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        int numAttribsDiscarded;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_213'/>
+213
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_213'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_214'/>
+214
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_214'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        ElementMeta(Element el, int numAttribsDiscarded) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_215'/>
+215
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_215'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            this.el = el;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_216'/>
+216
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_216'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            this.numAttribsDiscarded = numAttribsDiscarded;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_217'/>
+217
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_217'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_218'/>
+218
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_218'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_219'/>
+219
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_219'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@43253008_220'/>
+220
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@43253008_220'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@43253008_42'>42</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@43253008_42'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>&#60;init&#62;<br/><b>Killed by : </b>none</span></span> removed call to org/jsoup/helper/Validate::notNull &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.jsoup.safety.Cleaner,-method=<init>,-methodDesc=(Lorg/jsoup/safety/Safelist;)V],-indexes=[8],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.jsoup.safety.Cleaner,-method=<init>,-methodDesc=(Lorg/jsoup/safety/Safelist;)V],-indexes=[8],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.jsoup.safety.Cleaner,-method=<init>,-methodDesc=(Lorg/jsoup/safety/Safelist;)V],-indexes=[8],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:cleansInternationalText()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:testScriptTagInSafeList()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:testDropScript()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:discardsSvgScriptData()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:testIsValidDocument()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:handlesControlCharactersAfterTagName()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:simpleBehaviourTest2()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:testDropImageScript()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:copiesOutputSettings()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:testDropXmlProc()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:testDropComments()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:testHandlesEmptyAttributes()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:handlesFramesets()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[test-template:cleansCaseSensitiveElements(boolean)]/[test-template-invocation:#1]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:testDropsUnknownTags()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[test-template:safeListedProtocolShouldBeRetained(java.util.Locale)]/[test-template-invocation:#2]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[test-template:cleansCaseSensitiveElements(boolean)]/[test-template-invocation:#2]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[test-template:safeListedProtocolShouldBeRetained(java.util.Locale)]/[test-template-invocation:#1]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:addsTagOnAttributesIfNotSet()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:testRelaxed()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:testRemoveAttributes()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:simpleBehaviourTest()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:testCleanJavascriptHref()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:testRemoveTags()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:basicWithImagesTest()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:handlesNoHrefAttribute()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:handlesAttributesWithNoValue()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:supplyOutputSettings()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:handlesAllPseudoTag()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:handlesCustomProtocols()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:dropsUnresolvableRelativeLinks()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:handlesNestedQuotesInAttribute()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:removeProtocols()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:testCleanAnchorProtocol()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:canSupplyConfiguredTagset()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:resolvesRelativeLinks()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:testRemoveProtocols()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:dropsJavascriptWhenRelativeLinks()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:allAttributes()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:preservesRelativeLinksIfConfigured()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:testRemoveEnforcedAttributes()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:preservesSourcePositionViaUserData()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:basicBehaviourTest()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:nofollowOnlyOnExternalLinks()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:dropsConcealedJavascriptProtocolWhenRelativesLinksDisabled()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:testIsValidBodyHtml()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:dropsConcealedJavascriptProtocolWhenRelativesLinksEnabled()]</li> <li>org.jsoup.parser.HtmlParserTest.[engine:junit-jupiter]/[class:org.jsoup.parser.HtmlParserTest]/[method:testH20()]</li> <li>org.jsoup.parser.HtmlParserTest.[engine:junit-jupiter]/[class:org.jsoup.parser.HtmlParserTest]/[method:testUNewlines()]</li> <li>org.jsoup.parser.HtmlParserTest.[engine:junit-jupiter]/[class:org.jsoup.parser.HtmlParserTest]/[method:selfClosingVoidIsNotAnError()]</li> <li>org.jsoup.integration.SafelistExtensionTest.[engine:junit-jupiter]/[class:org.jsoup.integration.SafelistExtensionTest]/[method:canCustomizeSafeTests()]</li> <li>org.jsoup.parser.HtmlParserTest.[engine:junit-jupiter]/[class:org.jsoup.parser.HtmlParserTest]/[method:selfClosingOnNonvoidIsError()]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@43253008_54'>54</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@43253008_54'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>clean<br/><b>Killed by : </b>none</span></span> removed call to org/jsoup/helper/Validate::notNull &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.jsoup.safety.Cleaner,-method=clean,-methodDesc=(Lorg/jsoup/nodes/Document;)Lorg/jsoup/nodes/Document;],-indexes=[4],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.jsoup.safety.Cleaner,-method=clean,-methodDesc=(Lorg/jsoup/nodes/Document;)Lorg/jsoup/nodes/Document;],-indexes=[4],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.jsoup.safety.Cleaner,-method=clean,-methodDesc=(Lorg/jsoup/nodes/Document;)Lorg/jsoup/nodes/Document;],-indexes=[4],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:cleansInternationalText()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:testDropScript()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:discardsSvgScriptData()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:handlesControlCharactersAfterTagName()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:simpleBehaviourTest2()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:testDropImageScript()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:copiesOutputSettings()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:testDropXmlProc()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:testDropComments()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:testHandlesEmptyAttributes()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:handlesFramesets()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[test-template:cleansCaseSensitiveElements(boolean)]/[test-template-invocation:#1]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:testDropsUnknownTags()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[test-template:safeListedProtocolShouldBeRetained(java.util.Locale)]/[test-template-invocation:#2]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[test-template:cleansCaseSensitiveElements(boolean)]/[test-template-invocation:#2]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[test-template:safeListedProtocolShouldBeRetained(java.util.Locale)]/[test-template-invocation:#1]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:addsTagOnAttributesIfNotSet()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:testRelaxed()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:testRemoveAttributes()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:simpleBehaviourTest()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:testCleanJavascriptHref()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:testRemoveTags()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:basicWithImagesTest()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:handlesNoHrefAttribute()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:handlesAttributesWithNoValue()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:supplyOutputSettings()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:handlesAllPseudoTag()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:handlesCustomProtocols()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:dropsUnresolvableRelativeLinks()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:handlesNestedQuotesInAttribute()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:removeProtocols()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:testCleanAnchorProtocol()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:canSupplyConfiguredTagset()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:resolvesRelativeLinks()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:testRemoveProtocols()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:dropsJavascriptWhenRelativeLinks()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:allAttributes()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:preservesRelativeLinksIfConfigured()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:testRemoveEnforcedAttributes()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:preservesSourcePositionViaUserData()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:basicBehaviourTest()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:nofollowOnlyOnExternalLinks()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:dropsConcealedJavascriptProtocolWhenRelativesLinksDisabled()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:dropsConcealedJavascriptProtocolWhenRelativesLinksEnabled()]</li> <li>org.jsoup.parser.HtmlParserTest.[engine:junit-jupiter]/[class:org.jsoup.parser.HtmlParserTest]/[method:testH20()]</li> <li>org.jsoup.parser.HtmlParserTest.[engine:junit-jupiter]/[class:org.jsoup.parser.HtmlParserTest]/[method:testUNewlines()]</li> <li>org.jsoup.parser.HtmlParserTest.[engine:junit-jupiter]/[class:org.jsoup.parser.HtmlParserTest]/[method:selfClosingVoidIsNotAnError()]</li> <li>org.jsoup.integration.SafelistExtensionTest.[engine:junit-jupiter]/[class:org.jsoup.integration.SafelistExtensionTest]/[method:canCustomizeSafeTests()]</li> <li>org.jsoup.parser.HtmlParserTest.[engine:junit-jupiter]/[class:org.jsoup.parser.HtmlParserTest]/[method:selfClosingOnNonvoidIsError()]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@43253008_60'>60</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@43253008_60'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>clean<br/><b>Killed by : </b>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:cleansInternationalText()]</span></span> replaced return value with null for org/jsoup/safety/Cleaner::clean &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@43253008_86'>86</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@43253008_86'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isValid<br/><b>Killed by : </b>none</span></span> removed call to org/jsoup/helper/Validate::notNull &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.jsoup.safety.Cleaner,-method=isValid,-methodDesc=(Lorg/jsoup/nodes/Document;)Z],-indexes=[4],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.jsoup.safety.Cleaner,-method=isValid,-methodDesc=(Lorg/jsoup/nodes/Document;)Z],-indexes=[4],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.jsoup.safety.Cleaner,-method=isValid,-methodDesc=(Lorg/jsoup/nodes/Document;)Z],-indexes=[4],-mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:testIsValidDocument()]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@43253008_90'>90</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@43253008_90'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isValid<br/><b>Killed by : </b>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:testIsValidDocument()]</span></span> replaced boolean return with true for org/jsoup/safety/Cleaner::isValid &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isValid<br/><b>Killed by : </b>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:testIsValidDocument()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@43253008_91'>91</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@43253008_91'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isValid<br/><b>Killed by : </b>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:testIsValidDocument()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@43253008_116'>116</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@43253008_116'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isValidBodyHtml<br/><b>Killed by : </b>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:nofollowOnlyOnExternalLinks()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@43253008_123'>123</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@43253008_123'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isValidBodyHtml<br/><b>Killed by : </b>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:dropsJavascriptWhenRelativeLinks()]</span></span> replaced boolean return with true for org/jsoup/safety/Cleaner::isValidBodyHtml &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isValidBodyHtml<br/><b>Killed by : </b>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:testScriptTagInSafeList()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>isValidBodyHtml<br/><b>Killed by : </b>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:testScriptTagInSafeList()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@43253008_140'>140</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@43253008_140'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>head<br/><b>Killed by : </b>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:cleansInternationalText()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@43253008_143'>143</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@43253008_143'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>head<br/><b>Killed by : </b>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:cleansInternationalText()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@43253008_148'>148</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@43253008_148'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>head<br/><b>Killed by : </b>none</span></span> Replaced integer addition with subtraction &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.jsoup.safety.Cleaner$CleaningVisitor,-method=head,-methodDesc=(Lorg/jsoup/nodes/Node;I)V],-indexes=[46],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.jsoup.safety.Cleaner$CleaningVisitor,-method=head,-methodDesc=(Lorg/jsoup/nodes/Node;I)V],-indexes=[46],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.jsoup.safety.Cleaner$CleaningVisitor,-method=head,-methodDesc=(Lorg/jsoup/nodes/Node;I)V],-indexes=[46],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:testScriptTagInSafeList()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:discardsSvgScriptData()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:testIsValidDocument()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:handlesControlCharactersAfterTagName()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:simpleBehaviourTest2()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:testDropImageScript()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:copiesOutputSettings()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:testDropXmlProc()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:testDropComments()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:testHandlesEmptyAttributes()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[test-template:cleansCaseSensitiveElements(boolean)]/[test-template-invocation:#1]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:testDropsUnknownTags()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[test-template:safeListedProtocolShouldBeRetained(java.util.Locale)]/[test-template-invocation:#2]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[test-template:cleansCaseSensitiveElements(boolean)]/[test-template-invocation:#2]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[test-template:safeListedProtocolShouldBeRetained(java.util.Locale)]/[test-template-invocation:#1]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:addsTagOnAttributesIfNotSet()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:testRelaxed()]</li> <li>org.jsoup.parser.HtmlParserTest.[engine:junit-jupiter]/[class:org.jsoup.parser.HtmlParserTest]/[method:testH20()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:testRemoveAttributes()]</li> <li>org.jsoup.parser.HtmlParserTest.[engine:junit-jupiter]/[class:org.jsoup.parser.HtmlParserTest]/[method:testUNewlines()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:simpleBehaviourTest()]</li> <li>org.jsoup.parser.HtmlParserTest.[engine:junit-jupiter]/[class:org.jsoup.parser.HtmlParserTest]/[method:selfClosingVoidIsNotAnError()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:testCleanJavascriptHref()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:testRemoveTags()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:basicWithImagesTest()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:handlesNoHrefAttribute()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:handlesAttributesWithNoValue()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:supplyOutputSettings()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:handlesAllPseudoTag()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:handlesCustomProtocols()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:dropsUnresolvableRelativeLinks()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:handlesNestedQuotesInAttribute()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:removeProtocols()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:testCleanAnchorProtocol()]</li> <li>org.jsoup.integration.SafelistExtensionTest.[engine:junit-jupiter]/[class:org.jsoup.integration.SafelistExtensionTest]/[method:canCustomizeSafeTests()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:canSupplyConfiguredTagset()]</li> <li>org.jsoup.parser.HtmlParserTest.[engine:junit-jupiter]/[class:org.jsoup.parser.HtmlParserTest]/[method:selfClosingOnNonvoidIsError()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:resolvesRelativeLinks()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:testRemoveProtocols()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:dropsJavascriptWhenRelativeLinks()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:allAttributes()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:preservesRelativeLinksIfConfigured()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:testRemoveEnforcedAttributes()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:preservesSourcePositionViaUserData()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:basicBehaviourTest()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:nofollowOnlyOnExternalLinks()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:dropsConcealedJavascriptProtocolWhenRelativesLinksDisabled()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:testIsValidBodyHtml()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:dropsConcealedJavascriptProtocolWhenRelativesLinksEnabled()]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@43253008_150'>150</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@43253008_150'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>head<br/><b>Killed by : </b>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:testScriptTagInSafeList()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@43253008_151'>151</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@43253008_151'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>head<br/><b>Killed by : </b>none</span></span> Replaced integer addition with subtraction &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.jsoup.safety.Cleaner$CleaningVisitor,-method=head,-methodDesc=(Lorg/jsoup/nodes/Node;I)V],-indexes=[68],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.jsoup.safety.Cleaner$CleaningVisitor,-method=head,-methodDesc=(Lorg/jsoup/nodes/Node;I)V],-indexes=[68],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.jsoup.safety.Cleaner$CleaningVisitor,-method=head,-methodDesc=(Lorg/jsoup/nodes/Node;I)V],-indexes=[68],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:testDropScript()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:discardsSvgScriptData()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:testIsValidDocument()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:handlesFramesets()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:testDropsUnknownTags()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:testRemoveAttributes()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:simpleBehaviourTest()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:testRemoveTags()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:basicWithImagesTest()]</li> <li>org.jsoup.integration.SafelistExtensionTest.[engine:junit-jupiter]/[class:org.jsoup.integration.SafelistExtensionTest]/[method:canCustomizeSafeTests()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:canSupplyConfiguredTagset()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:testRemoveEnforcedAttributes()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:basicBehaviourTest()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:testIsValidBodyHtml()]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@43253008_153'>153</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@43253008_153'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>head<br/><b>Killed by : </b>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:cleansInternationalText()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@43253008_157'>157</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@43253008_157'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>head<br/><b>Killed by : </b>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:testScriptTagInSafeList()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>head<br/><b>Killed by : </b>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:testScriptTagInSafeList()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@43253008_162'>162</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@43253008_162'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>head<br/><b>Killed by : </b>none</span></span> Replaced integer addition with subtraction &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.jsoup.safety.Cleaner$CleaningVisitor,-method=head,-methodDesc=(Lorg/jsoup/nodes/Node;I)V],-indexes=[145],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.jsoup.safety.Cleaner$CleaningVisitor,-method=head,-methodDesc=(Lorg/jsoup/nodes/Node;I)V],-indexes=[145],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.jsoup.safety.Cleaner$CleaningVisitor,-method=head,-methodDesc=(Lorg/jsoup/nodes/Node;I)V],-indexes=[145],-mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:testDropScript()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:discardsSvgScriptData()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:testDropXmlProc()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:testDropComments()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:testIsValidBodyHtml()]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@43253008_167'>167</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@43253008_167'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>tail<br/><b>Killed by : </b>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:simpleBehaviourTest2()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>tail<br/><b>Killed by : </b>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:simpleBehaviourTest2()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@43253008_175'>175</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@43253008_175'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>copySafeNodes<br/><b>Killed by : </b>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:cleansInternationalText()]</span></span> removed call to org/jsoup/safety/Cleaner$CleaningVisitor::traverse &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@43253008_176'>176</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@43253008_176'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>copySafeNodes<br/><b>Killed by : </b>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:testIsValidDocument()]</span></span> replaced int return with 0 for org/jsoup/safety/Cleaner::copySafeNodes &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@43253008_188'>188</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@43253008_188'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>createSafeElement<br/><b>Killed by : </b>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:testDropImageScript()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@43253008_191'>191</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@43253008_191'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>createSafeElement<br/><b>Killed by : </b>none</span></span> Changed increment from 1 to -1 &rarr; SURVIVED</span>
+<a title="Click to view covering tests" class="view-covered-by-tests" onClick="document.getElementById('MutationIdentifier-[location=Location-[clazz=org.jsoup.safety.Cleaner,-method=createSafeElement,-methodDesc=(Lorg/jsoup/nodes/Element;)Lorg/jsoup/safety/Cleaner$ElementMeta;],-indexes=[63],-mutator=org.pitest.mutationtest.engine.gregor.mutators.IncrementsMutator]').style.display=(document.getElementById('MutationIdentifier-[location=Location-[clazz=org.jsoup.safety.Cleaner,-method=createSafeElement,-methodDesc=(Lorg/jsoup/nodes/Element;)Lorg/jsoup/safety/Cleaner$ElementMeta;],-indexes=[63],-mutator=org.pitest.mutationtest.engine.gregor.mutators.IncrementsMutator]').style.display == 'block')?'none':'block';">Covering tests</a>
+<div class="covered-tests" id="MutationIdentifier-[location=Location-[clazz=org.jsoup.safety.Cleaner,-method=createSafeElement,-methodDesc=(Lorg/jsoup/nodes/Element;)Lorg/jsoup/safety/Cleaner$ElementMeta;],-indexes=[63],-mutator=org.pitest.mutationtest.engine.gregor.mutators.IncrementsMutator]" style="display:none;">Covered by tests:
+<ul>
+<li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:testDropImageScript()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:testHandlesEmptyAttributes()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:addsTagOnAttributesIfNotSet()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:testRemoveAttributes()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:simpleBehaviourTest()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:testCleanJavascriptHref()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:basicWithImagesTest()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:handlesNoHrefAttribute()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:handlesAttributesWithNoValue()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:handlesCustomProtocols()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:handlesAllPseudoTag()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:dropsUnresolvableRelativeLinks()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:removeProtocols()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:testCleanAnchorProtocol()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:allAttributes()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:dropsJavascriptWhenRelativeLinks()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:preservesRelativeLinksIfConfigured()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:testRemoveProtocols()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:basicBehaviourTest()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:dropsConcealedJavascriptProtocolWhenRelativesLinksDisabled()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:testIsValidBodyHtml()]</li> <li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:dropsConcealedJavascriptProtocolWhenRelativesLinksEnabled()]</li> 
+</ul>
+</div></div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@43253008_197'>197</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@43253008_197'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>createSafeElement<br/><b>Killed by : </b>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:resolvesRelativeLinks()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>createSafeElement<br/><b>Killed by : </b>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:resolvesRelativeLinks()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@43253008_200'>200</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@43253008_200'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>createSafeElement<br/><b>Killed by : </b>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:resolvesRelativeLinks()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>createSafeElement<br/><b>Killed by : </b>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:resolvesRelativeLinks()]</span></span> negated conditional &rarr; KILLED</span>
+</div> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>createSafeElement<br/><b>Killed by : </b>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:resolvesRelativeLinks()]</span></span> negated conditional &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@43253008_201'>201</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@43253008_201'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>createSafeElement<br/><b>Killed by : </b>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:resolvesRelativeLinks()]</span></span> removed call to org/jsoup/nodes/Attributes::remove &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@43253008_205'>205</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@43253008_205'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>createSafeElement<br/><b>Killed by : </b>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:handlesControlCharactersAfterTagName()]</span></span> removed call to org/jsoup/nodes/Attributes::addAll &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@43253008_206'>206</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@43253008_206'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>createSafeElement<br/><b>Killed by : </b>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:handlesControlCharactersAfterTagName()]</span></span> removed call to org/jsoup/nodes/Attributes::addAll &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@43253008_207'>207</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@43253008_207'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>createSafeElement<br/><b>Killed by : </b>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:testScriptTagInSafeList()]</span></span> replaced return value with null for org/jsoup/safety/Cleaner::createSafeElement &rarr; KILLED</span>
+</div> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+
+<li class='mutator'>CONDITIONALS_BOUNDARY</li>
+
+<li class='mutator'>EMPTY_RETURNS</li>
+
+<li class='mutator'>FALSE_RETURNS</li>
+
+<li class='mutator'>INCREMENTS</li>
+
+<li class='mutator'>INVERT_NEGS</li>
+
+<li class='mutator'>MATH</li>
+
+<li class='mutator'>NEGATE_CONDITIONALS</li>
+
+<li class='mutator'>NULL_RETURNS</li>
+
+<li class='mutator'>PRIMITIVE_RETURNS</li>
+
+<li class='mutator'>TRUE_RETURNS</li>
+
+<li class='mutator'>VOID_METHOD_CALLS</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:testScriptTagInSafeList()] (1 ms)</li><li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:handlesNestedQuotesInAttribute()] (4 ms)</li><li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:dropsJavascriptWhenRelativeLinks()] (7 ms)</li><li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:nofollowOnlyOnExternalLinks()] (15 ms)</li><li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:dropsConcealedJavascriptProtocolWhenRelativesLinksDisabled()] (7 ms)</li><li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:testIsValidBodyHtml()] (9 ms)</li><li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:dropsConcealedJavascriptProtocolWhenRelativesLinksEnabled()] (14 ms)</li><li>org.jsoup.parser.HtmlParserTest.[engine:junit-jupiter]/[class:org.jsoup.parser.HtmlParserTest]/[method:selfClosingVoidIsNotAnError()] (2 ms)</li><li>org.jsoup.parser.HtmlParserTest.[engine:junit-jupiter]/[class:org.jsoup.parser.HtmlParserTest]/[method:selfClosingOnNonvoidIsError()] (3 ms)</li><li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:testDropImageScript()] (3 ms)</li><li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:testHandlesEmptyAttributes()] (2 ms)</li><li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:addsTagOnAttributesIfNotSet()] (1 ms)</li><li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:testRemoveAttributes()] (1 ms)</li><li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:simpleBehaviourTest()] (1 ms)</li><li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:testCleanJavascriptHref()] (3 ms)</li><li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:basicWithImagesTest()] (2 ms)</li><li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:handlesNoHrefAttribute()] (4 ms)</li><li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:handlesAttributesWithNoValue()] (2 ms)</li><li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:handlesCustomProtocols()] (10 ms)</li><li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:handlesAllPseudoTag()] (2 ms)</li><li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:dropsUnresolvableRelativeLinks()] (2 ms)</li><li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:removeProtocols()] (4 ms)</li><li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:testCleanAnchorProtocol()] (5 ms)</li><li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:allAttributes()] (4 ms)</li><li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:preservesRelativeLinksIfConfigured()] (3 ms)</li><li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:testRemoveProtocols()] (2 ms)</li><li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:basicBehaviourTest()] (5 ms)</li><li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:handlesControlCharactersAfterTagName()] (1 ms)</li><li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:resolvesRelativeLinks()] (1 ms)</li><li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:cleansInternationalText()] (1 ms)</li><li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:testDropScript()] (1 ms)</li><li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:discardsSvgScriptData()] (1 ms)</li><li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:testIsValidDocument()] (2 ms)</li><li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:simpleBehaviourTest2()] (1 ms)</li><li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:copiesOutputSettings()] (1 ms)</li><li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:testDropXmlProc()] (3 ms)</li><li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:testDropComments()] (1 ms)</li><li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:handlesFramesets()] (2 ms)</li><li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[test-template:cleansCaseSensitiveElements(boolean)]/[test-template-invocation:#1] (1 ms)</li><li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:testDropsUnknownTags()] (1 ms)</li><li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[test-template:safeListedProtocolShouldBeRetained(java.util.Locale)]/[test-template-invocation:#2] (3 ms)</li><li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[test-template:cleansCaseSensitiveElements(boolean)]/[test-template-invocation:#2] (7 ms)</li><li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[test-template:safeListedProtocolShouldBeRetained(java.util.Locale)]/[test-template-invocation:#1] (5 ms)</li><li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:testRelaxed()] (2 ms)</li><li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:testRemoveTags()] (1 ms)</li><li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:supplyOutputSettings()] (13 ms)</li><li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:canSupplyConfiguredTagset()] (3 ms)</li><li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:testRemoveEnforcedAttributes()] (2 ms)</li><li>org.jsoup.safety.CleanerTest.[engine:junit-jupiter]/[class:org.jsoup.safety.CleanerTest]/[method:preservesSourcePositionViaUserData()] (2 ms)</li><li>org.jsoup.parser.HtmlParserTest.[engine:junit-jupiter]/[class:org.jsoup.parser.HtmlParserTest]/[method:testH20()] (5 ms)</li><li>org.jsoup.parser.HtmlParserTest.[engine:junit-jupiter]/[class:org.jsoup.parser.HtmlParserTest]/[method:testUNewlines()] (1 ms)</li><li>org.jsoup.integration.SafelistExtensionTest.[engine:junit-jupiter]/[class:org.jsoup.integration.SafelistExtensionTest]/[method:canCustomizeSafeTests()] (11 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='https://pitest.org'>PIT</a> 1.22.1
+
+</body>
+</html>

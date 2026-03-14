@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Branch Coverage Report — jsoup.nodes</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0d0f14;
+    --surface: #13161e;
+    --border: #1e2330;
+    --accent: #00e5a0;
+    --accent2: #ff6b35;
+    --warn: #ffcc00;
+    --text: #c8d0e0;
+    --muted: #4a5270;
+    --header-bg: #0a0c11;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'IBM Plex Mono', monospace;
+    min-height: 100vh;
+    padding: 2.5rem;
+  }
+
+  .page-header {
+    margin-bottom: 2rem;
+  }
+
+  .page-header h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+  }
+
+  .page-header .subtitle {
+    font-size: 0.72rem;
+    color: var(--muted);
+    margin-top: 0.3rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .tag {
+    display: inline-block;
+    background: var(--accent);
+    color: #000;
+    font-size: 0.6rem;
+    font-weight: 600;
+    padding: 0.15rem 0.5rem;
+    border-radius: 2px;
+    margin-left: 0.6rem;
+    letter-spacing: 0.1em;
+    vertical-align: middle;
+  }
+
+  .table-wrapper {
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.78rem;
+  }
+
+  thead tr {
+    background: var(--header-bg);
+  }
+
+  thead th {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    border-bottom: 1px solid var(--border);
+  }
+
+  thead th:not(:first-child) { text-align: right; }
+
+  tbody tr {
+    border-bottom: 1px solid var(--border);
+    transition: background 0.15s;
+  }
+
+  tbody tr:last-child { border-bottom: none; }
+  tbody tr:nth-child(even) { background: rgba(255,255,255,0.015); }
+  tbody tr:hover { background: rgba(0, 229, 160, 0.04); }
+
+  td {
+    padding: 0.65rem 1rem;
+    vertical-align: middle;
+  }
+
+  td.class-name {
+    color: #fff;
+    font-weight: 600;
+  }
+
+  td.class-name span {
+    color: var(--muted);
+    font-weight: 400;
+  }
+
+  td.criterion {
+    color: var(--accent);
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+  }
+
+  td.num { text-align: right; color: var(--text); }
+
+  /* Coverage bar cell */
+  td.coverage { text-align: right; }
+
+  .cov-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.6rem;
+  }
+
+  .cov-bar-track {
+    width: 80px;
+    height: 5px;
+    background: var(--border);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+
+  .cov-bar-fill {
+    height: 100%;
+    border-radius: 3px;
+    transition: width 0.4s ease;
+  }
+
+  .cov-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    min-width: 42px;
+    text-align: right;
+  }
+
+  .high  { color: var(--accent); background: var(--accent); }
+  .mid   { color: var(--warn);   background: var(--warn); }
+  .low   { color: var(--accent2);background: var(--accent2); }
+
+  .footer {
+    margin-top: 1.2rem;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.65rem;
+    color: var(--muted);
+    letter-spacing: 0.06em;
+  }
+
+  .summary-pills {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .pill {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+  }
+
+  .dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <h1>Branch Coverage Report <span class="tag">BRANCH</span></h1>
+  <div class="subtitle">org.jsoup.nodes — 19 classes analisadas</div>
+</div>
+
+<div class="table-wrapper">
+  <table>
+    <thead>
+      <tr>
+        <th>Target Class</th>
+        <th>Criterion</th>
+        <th>Total Goals</th>
+        <th>Covered Goals</th>
+        <th>Coverage</th>
+      </tr>
+    </thead>
+    <tbody id="tbody"></tbody>
+  </table>
+</div>
+
+<div class="footer">
+  <div class="summary-pills">
+    <div class="pill"><span class="dot" style="background:#00e5a0"></span> ≥ 90% Alta</div>
+    <div class="pill"><span class="dot" style="background:#ffcc00"></span> 70–89% Média</div>
+    <div class="pill"><span class="dot" style="background:#ff6b35"></span> &lt; 70% Baixa</div>
+  </div>
+  <div>jsoup coverage analysis</div>
+</div>
+
+<script>
+const rows = [
+  ["org.jsoup.nodes.Attribute","BRANCH",134,130,0.9701492537313433],
+  ["org.jsoup.nodes.Attributes","BRANCH",211,184,0.8720379146919431],
+  ["org.jsoup.nodes.CDataNode","BRANCH",5,5,1.0],
+  ["org.jsoup.nodes.Comment","BRANCH",19,19,1.0],
+  ["org.jsoup.nodes.DataNode","BRANCH",13,11,0.8461538461538461],
+  ["org.jsoup.nodes.Document","BRANCH",82,73,0.9146341463414634],
+  ["org.jsoup.nodes.DocumentType","BRANCH",27,27,1.0],
+  ["org.jsoup.nodes.Element","BRANCH",369,321,0.8699186991869918],
+  ["org.jsoup.nodes.Entities","BRANCH",145,79,0.5517241379310345],
+  ["org.jsoup.nodes.EntitiesData","BRANCH",1,1,1.0],
+  ["org.jsoup.nodes.LeafNode","BRANCH",30,29,0.9666666666666667],
+  ["org.jsoup.nodes.Node","BRANCH",211,180,0.8530805687203792],
+  ["org.jsoup.nodes.NodeIterator","BRANCH",31,30,0.967741935483871],
+  ["org.jsoup.nodes.NodeUtils","BRANCH",8,8,1.0],
+  ["org.jsoup.nodes.Printer","BRANCH",149,96,0.6442953020134228],
+  ["org.jsoup.nodes.PseudoTextElement","BRANCH",3,3,1.0],
+  ["org.jsoup.nodes.Range","BRANCH",58,51,0.8793103448275862],
+  ["org.jsoup.nodes.TextNode","BRANCH",22,22,1.0],
+  ["org.jsoup.nodes.XmlDeclaration","BRANCH",17,17,1.0],
+];
+
+const tbody = document.getElementById('tbody');
+
+rows.forEach(([cls, crit, total, covered, cov]) => {
+  const pct = (cov * 100).toFixed(2);
+  const tier = cov >= 0.9 ? 'high' : cov >= 0.7 ? 'mid' : 'low';
+  const pkg = cls.substring(0, cls.lastIndexOf('.') + 1);
+  const name = cls.substring(cls.lastIndexOf('.') + 1);
+
+  tbody.innerHTML += `
+    <tr>
+      <td class="class-name"><span>${pkg}</span>${name}</td>
+      <td class="criterion">${crit}</td>
+      <td class="num">${total}</td>
+      <td class="num">${covered}</td>
+      <td class="coverage">
+        <div class="cov-wrap">
+          <div class="cov-bar-track">
+            <div class="cov-bar-fill ${tier}" style="width:${pct}%"></div>
+          </div>
+          <span class="cov-label ${tier}">${pct}%</span>
+        </div>
+      </td>
+    </tr>
+  `;
+});
+</script>
+</body>
+</html>
